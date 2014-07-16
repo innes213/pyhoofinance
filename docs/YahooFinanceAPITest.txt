@@ -1,0 +1,322 @@
+#
+#  pyhoofinance - doc/YahooAPITest.txt
+#
+#  Copyright (c) 2014, Rob Innes Hislop
+#  email:robinneshislop__AT__gmail.com
+#
+# This library is distributed under the terms of the 
+# GNU General Public License (or the Lesser GPL)
+# version 3.
+ 
+Best displayed with word-wrap off.
+
+The purpose of this document is to list the results of querying the 
+Yahoo Finance API with every token of the format <letter> and 
+<letter><digit> where <letter> is in the set ‘a’ through ’z’ and
+<digit> is 0 through 9. As the the list shows, there is a great 
+deal of redundancy and garbage that is returned for many values. 
+Also, note how the format of the date display varies.
+
+What makes the Yahoo Finance API particularly difficult is that the 
+data is returned in a csv file (comma-separated values) and some of 
+the data contains commas, making them difficult to parse when 
+retrieving multiple pieces of data. See shares_outstanding (j2) and 
+float_shares (f6).
+
+Also, Yahoo allows users to enter portfolio data. Those data items 
+that Yahoo allows users to set and values that are calculated and 
+returned by Yahoo based on those values show up in the table below 
+only as - or - - -.
+
+These are the results of querying the Yahoo Finance API with every 
+valid key, one at a time, for the ticker symbol AAPL, generated 
+Friday July 11th 2014. Data described as UNUSED are data items that 
+are either unknown or redundant. 
+                                        
+                             Data Description : Token --> Result
+                                       UNUSED : a     --> 95.44
+                                          ask : a0    --> 95.44
+                                       UNUSED : a1    --> N/A
+                         average_daily_volume : a2    --> 65380500
+                                       UNUSED : a3    --> 95.44
+                                       UNUSED : a4    --> 95.44
+                                     ask_size : a5    --> 300
+                                       UNUSED : a6    --> ""
+                                       UNUSED : a7    --> ""
+                                       UNUSED : a8    --> ""
+                                       UNUSED : a9    --> ""
+                                       UNUSED : b     --> N/A
+                                          bid : b0    --> N/A
+                                       UNUSED : b1    --> 0.00
+                                       ask_rt : b2    --> 95.44
+                                       bid_rt : b3    --> 0.00
+                                   book_value : b4    --> 19.923
+                                       UNUSED : b5    --> ""
+                                     bid_size : b6    --> N/A
+                                       UNUSED : b7    --> ""
+                                       UNUSED : b8    --> ""
+                                       UNUSED : b9    --> ""
+                                       UNUSED : c     --> "+0.185 - +0.19%"
+                    change_and_percent_change : c0    --> "+0.185 - +0.19%"
+                                       change : c1    --> +0.185
+                                       UNUSED : c2    --> "+0.185 - +0.19%"
+                                   commission : c3    --> -
+                                     currency : c4    --> "USD"
+                                       UNUSED : c5    --> "N/A - +0.19%"
+                                    change_rt : c6    --> "+0.185"
+                                       UNUSED : c7    --> +0.185
+                        after_hours_change_rt : c8    --> "N/A - N/A"
+                                       UNUSED : c9    --> ""
+                                       UNUSED : d     --> 1.7771
+                  trailing_dividend_per_share : d0    --> 1.7771
+                              last_trade_date : d1    --> "7/11/2014"
+                                   trade_date : d2    --> -
+                                       UNUSED : d3    --> "Jul 11"
+                                       UNUSED : d4    --> ""
+                                       UNUSED : d5    --> ""
+                                       UNUSED : d6    --> ""
+                                       UNUSED : d7    --> ""
+                                       UNUSED : d8    --> ""
+                                       UNUSED : d9    --> ""
+                                       UNUSED : e     --> 5.961
+                           earnings_per_share : e0    --> 5.961
+                             error_indication : e1    --> "N/A"
+                                       UNUSED : e2    --> "N/A"
+                                       UNUSED : e3    --> "N/A"
+                                       UNUSED : e4    --> "N/A"
+                                       UNUSED : e5    --> "-"
+                                       UNUSED : e6    --> "-"
+                    eps_estimate_current_year : e7    --> 6.32
+                       eps_estimate_next_year : e8    --> 6.92
+                    eps_estimate_next_quarter : e9    --> 1.34
+                                       UNUSED : f     --> "<b>Apple Inc.</b> (NasdaqNM:AAPL)', '&nbsp;-&nbsp;Trade:&nbsp;<a href="http://edit.finance.yahoo.com/ef?.intl=us&.done=http://finance.yahoo.com/d/quotes.csv%3fs%3dAAPL%26f%3df">Choose&nbsp;Brokerage</a>"
+                                       UNUSED : f0    --> "<b>Apple Inc.</b> (NasdaqNM:AAPL)', '&nbsp;-&nbsp;Trade:&nbsp;<a href="http://edit.finance.yahoo.com/ef?.intl=us&.done=http://finance.yahoo.com/d/quotes.csv%3fs%3dAAPL%26f%3df0">Choose&nbsp;Brokerage</a>"
+                                       UNUSED : f1    --> "<b>Apple Inc.</b> (NasdaqNM:AAPL)', '&nbsp;-&nbsp;Trade:&nbsp;<a href="http://edit.finance.yahoo.com/ef?.intl=us&.done=http://finance.yahoo.com/d/quotes.csv%3fs%3dAAPL%26f%3df1">Choose&nbsp;Brokerage</a>"
+                                       UNUSED : f2    --> "<b>Apple Inc.</b> (NasdaqNM:AAPL)', '&nbsp;-&nbsp;Trade:&nbsp;<a href="http://edit.finance.yahoo.com/ef?.intl=us&.done=http://finance.yahoo.com/d/quotes.csv%3fs%3dAAPL%26f%3df2">Choose&nbsp;Brokerage</a>"
+                                       UNUSED : f3    --> "<b>Apple Inc.</b> (NasdaqNM:AAPL)', '&nbsp;-&nbsp;Trade:&nbsp;<a href="http://edit.finance.yahoo.com/ef?.intl=us&.done=http://finance.yahoo.com/d/quotes.csv%3fs%3dAAPL%26f%3df3">Choose&nbsp;Brokerage</a>"
+                                       UNUSED : f4    --> "Option on:  - <b>Apple Inc.</b> (NasdaqNM:N/A)', '&nbsp;-&nbsp;Trade:&nbsp;<a href="http://edit.finance.yahoo.com/ef?.intl=us&.done=http://finance.yahoo.com/d/quotes.csv%3fs%3dAAPL%26f%3df4">Choose&nbsp;Brokerage</a>"
+                                       UNUSED : f5    --> "<b>Apple Inc.</b> (NasdaqNM:AAPL)', '&nbsp;-&nbsp;Trade:&nbsp;<a href="http://edit.finance.yahoo.com/ef?.intl=us&.done=http://finance.yahoo.com/d/quotes.csv%3fs%3dAAPL%26f%3df5">Choose&nbsp;Brokerage</a>"
+                                 float_shares : f6    -->   6,021,104,000
+                                       UNUSED : f7    --> "<b> <a href="/q?s=&d=t"></a></b> (NasdaqNM:AAPL)', '&nbsp;-&nbsp;Trade:&nbsp;<a href="http://edit.finance.yahoo.com/ef?.intl=us&.done=http://finance.yahoo.com/d/quotes.csv%3fs%3dAAPL%26f%3df7">Choose&nbsp;Brokerage</a>"
+                                       UNUSED : f8    --> "<b> <a href="/q?s=&d=t"></a></b> (NasdaqNM:AAPL)', '&nbsp;-&nbsp;Trade:&nbsp;<a href="http://edit.finance.yahoo.com/ef?.intl=us&.done=http://finance.yahoo.com/d/quotes.csv%3fs%3dAAPL%26f%3df8">Choose&nbsp;Brokerage</a>"
+                                       UNUSED : f9    --> ""
+                                       UNUSED : g     --> 94.8625
+                                      day_low : g0    --> 94.8625
+                        holdings_gain_percent : g1    --> "- - -"
+                                       UNUSED : g2    --> "<b>Apple Inc.</b> (NasdaqNM:AAPL)', '&nbsp;-&nbsp;Trade:&nbsp;<a href="http://edit.finance.yahoo.com/ef?.intl=us&.done=http://finance.yahoo.com/d/quotes.csv%3fs%3dAAPL%26f%3dg2">Choose&nbsp;Brokerage</a>"
+                              annualized_gain : g3    --> "-"
+                                holdings_gain : g4    --> -
+                     holdings_gain_percent_rt : g5    --> "N/A - N/A"
+                             holdings_gain_rt : g6    --> N/A
+                                       UNUSED : g7    --> ""
+                                       UNUSED : g8    --> ""
+                                       UNUSED : g9    --> ""
+                                       UNUSED : h     --> 95.89
+                                     day_high : h0    --> 95.89
+                                       UNUSED : h1    --> "</tr><tr><td colspan=6 bgcolor=eeeeee><table width=100% border=0 cellpadding=2 cellspacing=0><tr>"
+                                       UNUSED : h2    --> "</tr></table></td>"
+                                       UNUSED : h3    --> "<form action=/q>"
+                                       UNUSED : h4    --> "</form>"
+                                       UNUSED : h5    --> "</tr><tr><td colspan=6 bgcolor=eeeeee><table width=100% border=0 cellpadding=2 cellspacing=0><tr>"
+                                       UNUSED : h6    --> "</tr></table></td>"
+                                       UNUSED : h7    --> ""
+                                       UNUSED : h8    --> ""
+                                       UNUSED : h9    --> ""
+                                       UNUSED : i     --> "cnsprmiIed"
+                                    more_info : i0    --> "cnsprmiIed"
+                                       UNUSED : i1    --> ""
+                                       UNUSED : i2    --> N/A
+                                       UNUSED : i3    --> N/A
+                                       UNUSED : i4    --> N/A
+                                order_book_rt : i5    --> "N/A"
+                                       UNUSED : i6    --> "N/A"
+                                       UNUSED : i7    --> "95.22"
+                                       UNUSED : i8    --> ""
+                                       UNUSED : i9    --> ""
+                                       UNUSED : j     --> 59.8157
+                                  52_week_low : j0    --> 59.8157
+                        market_capitalization : j1    --> 574.1B
+                           shares_outstanding : j2    -->   6,029,666,000
+                                market_cap_rt : j3    --> N/A
+                                       ebitda : j4    --> 57.795B
+                      change_from_52-week_low : j5    --> +35.4043
+              percent_change_From_52-week_low : j6    --> +59.19%
+                                       UNUSED : j7    --> ""
+                                       UNUSED : j8    --> ""
+                                       UNUSED : j9    --> ""
+                                       UNUSED : k     --> 96.80
+                                 52_week_high : k0    --> 96.80
+                      last_trade_rt_with_time : k1    --> "N/A - <b>95.22</b>"
+                            change_percent_rt : k2    --> "N/A - +0.19%"
+                              last_trade_size : k3    --> 500
+                     change_from_52-week_high : k4    --> -1.58
+             percebt_change_from_52-week_high : k5    --> -1.63%
+                                       UNUSED : k6    --> ""
+                                       UNUSED : k7    --> ""
+                                       UNUSED : k8    --> ""
+                                       UNUSED : k9    --> ""
+                                       UNUSED : l     --> "Jul 11 - <b>95.22</b>"
+                                last_trade_rt : l0    --> "Jul 11 - <b>95.22</b>"
+                        last_trade_price_only : l1    --> 95.22
+                                   high_limit : l2    --> -
+                                    low_limit : l3    --> -
+                                       UNUSED : l4    --> "N/A - N/A"
+                                       UNUSED : l5    --> "N/A"
+                                       UNUSED : l6    --> "N/A"
+                                       UNUSED : l7    --> 95.22
+                                       UNUSED : l8    --> "N/A - <b>95.22</b>"
+                                       UNUSED : l9    --> 95.22
+                                       UNUSED : m     --> "94.8625 - 95.89"
+                                    day_range : m0    --> "94.8625 - 95.89"
+                                       UNUSED : m1    --> N/A
+                                 day_range_rt : m2    --> "N/A - N/A"
+                        50-day_moving_average : m3    --> 92.2072
+                       200-day_moving_average : m4    --> 81.4796
+           change_from_200-day_moving_average : m5    --> +13.7404
+   percent_change_from_200-day_moving_average : m6    --> +16.86%
+            change_from_50-day_moving_average : m7    --> +3.0128
+    percent_change_rrom_50-day_moving_average : m8    --> +3.27%
+                                       UNUSED : m9    --> ""
+                                       UNUSED : n     --> "Apple Inc."
+                                         name : n0    --> "Apple Inc."
+                                       UNUSED : n1    --> Jul 11 - <b>95.22</b>
+                                       UNUSED : n2    --> N/A
+                                       UNUSED : n3    --> N/A
+                                        notes : n4    --> "-"
+                                       UNUSED : n5    --> Jul 11 - <b>95.22</b>
+                                       UNUSED : n6    --> ""
+                                       UNUSED : n7    --> ""
+                                       UNUSED : n8    --> ""
+                                       UNUSED : n9    --> ""
+                                       UNUSED : o     --> 95.38
+                                         open : o0    --> 95.38
+                                       UNUSED : o1    --> "N/A"
+                                       UNUSED : o2    --> "N/A"
+                                       UNUSED : o3    --> ""
+                                       UNUSED : o4    --> N/A
+                                       UNUSED : o5    --> N/A
+                                       UNUSED : o6    --> ""
+                                       UNUSED : o7    --> ""
+                                       UNUSED : o8    --> ""
+                                       UNUSED : o9    --> ""
+                                       UNUSED : p     --> 95.035
+                               previous_close : p0    --> 95.035
+                                   price_paid : p1    --> -
+                            change_in_percent : p2    --> "+0.19%"
+                                       UNUSED : p3    --> "N/A"
+                                       UNUSED : p4    --> "+0.19%"
+                               price_to_sales : p5    --> 3.26
+                                price_to_book : p6    --> 4.77
+                                       UNUSED : p7    --> ""
+                                       UNUSED : p8    --> 95.035
+                                       UNUSED : p9    --> 3.26
+                                       UNUSED : q     --> "May  8"
+                             ex-dividend_date : q0    --> "May  8"
+                                       UNUSED : q1    --> "+0.185 - +0.19%"
+                                       UNUSED : q2    --> 95.22
+                                       UNUSED : q3    --> "<td nowrap><small>Range: </small></td>', '<a href="/q?s=AAPL&d=c&t=1d&l=on&z=m&q=l">1d</a> <a href="/q?s=AAPL&d=c&t=5d&l=on&z=m&q=l">5d</a> <a href="/q?s=AAPL&d=c&t=3m&l=on&z=m&q=l">3m</a> <a href="/q?s=AAPL&d=c&t=6m&l=on&z=m&q=l">6m</a> <a href="/q?s=AAPL&d=c&t=1y&l=on&z=m&q=l">1y</a> <a href="/q?s=AAPL&d=c&t=2y&l=on&z=m&q=l">2y</a> <a href="/q?s=AAPL&d=c&t=5y&l=on&z=m&q=l">5y</a> <a href="/q?s=AAPL&d=c&t=my&l=on&z=m&q=l">max</a>"
+                                       UNUSED : q4    --> "<td nowrap><small>Type: </small></td>', '<a href="/q?s=AAPL&d=c&t=&l=on&z=m&q=b">Bar</a> | <b>Line</b> | <a href="/q?s=AAPL&d=c&t=&l=on&z=m&q=c">Cdl</a>"
+                                       UNUSED : q5    --> "<td nowrap><small>Scale: </small></td>', '<a href="/q?s=AAPL&d=c&t=&l=off&z=m&q=l">Linear</a> | <b>Log</b>"
+                                       UNUSED : q6    --> "<td nowrap><small>Size: </small></td>', '<b>M</b> | <a href="/q?s=AAPL&d=c&t=&l=on&z=l&q=l">L</a>"
+                                       UNUSED : q7    --> "<td nowrap><small>Moving&nbsp;Avg: </small></td>', '<a href="/q?s=AAPL&d=c&p=m5&t=&l=on&z=m&q=l">5</a> | <a href="/q?s=AAPL&d=c&p=m10&t=&l=on&z=m&q=l">10</a> | <a href="/q?s=AAPL&d=c&p=m20&t=&l=on&z=m&q=l">20</a> | <a href="/q?s=AAPL&d=c&p=m50&t=&l=on&z=m&q=l">50</a> | <a href="/q?s=AAPL&d=c&p=m100&t=&l=on&z=m&q=l">100</a> | <a href="/q?s=AAPL&d=c&p=m200&t=&l=on&z=m&q=l">200</a>"
+                                       UNUSED : q8    --> "<td nowrap><small>EMA: </small></td>', '<a href="/q?s=AAPL&d=c&p=e5&t=&l=on&z=m&q=l">5</a> | <a href="/q?s=AAPL&d=c&p=e10&t=&l=on&z=m&q=l">10</a> | <a href="/q?s=AAPL&d=c&p=e20&t=&l=on&z=m&q=l">20</a> | <a href="/q?s=AAPL&d=c&p=e50&t=&l=on&z=m&q=l">50</a> | <a href="/q?s=AAPL&d=c&p=e100&t=&l=on&z=m&q=l">100</a> | <a href="/q?s=AAPL&d=c&p=e200&t=&l=on&z=m&q=l">200</a>"
+                                       UNUSED : q9    --> "<td nowrap><small>Compare: </small></td>', 'AAPL&nbsp;vs.&nbsp;<input type=hidden name=d value=c><input size=12 name=c><input type=hidden name=t value=><input type=hidden name=s value=aapl><input type=hidden name=l value=on><input type=hidden name=z value=m><input type=hidden name=q value=l>', '&nbsp;&nbsp;<input type=checkbox name=x> S&amp;P &nbsp;&nbsp;<input type=checkbox name=y> Nasdaq &nbsp;&nbsp;<input type=checkbox name=w> Dow &nbsp;&nbsp;&nbsp;<input type=submit value=Compare>"
+                                       UNUSED : r     --> 15.94
+                                     pe_ratio : r0    --> 15.94
+                            dividend_pay_date : r1    --> "May 15"
+                                  pe_ratio_rt : r2    --> N/A
+                         chart_overlays_links : r3    --> "<td nowrap><small>Indicators: </small></td>', '<a href="/q?s=AAPL&d=c&a=m26-12-9&t=&l=on&z=m&q=l">MACD</a> | <a href="/q?s=AAPL&d=c&a=f14&t=&l=on&z=m&q=l">MFI</a> | <a href="/q?s=AAPL&d=c&a=p12&t=&l=on&z=m&q=l">ROC</a> | <a href="/q?s=AAPL&d=c&a=r14&t=&l=on&z=m&q=l">RSI</a> | <a href="/q?s=AAPL&d=c&a=ss&t=&l=on&z=m&q=l">Slow Stoch</a> | <a href="/q?s=AAPL&d=c&a=fs&t=&l=on&z=m&q=l">Fast Stoch</a> | <a href="/q?s=AAPL&d=c&a=v&t=&l=on&z=m&q=l">Vol</a> | <a href="/q?s=AAPL&d=c&a=vm&t=&l=on&z=m&q=l">Vol+MA</a> | <a href="/q?s=AAPL&d=c&a=w14&t=&l=on&z=m&q=l">W%R</a> | <a href="/q?s=AAPL&d=c&t=&l=on&z=m&q=l">[All Off]</a>"
+                 chart_lower_indicators_links : r4    --> "<td nowrap><small>Overlays: </small></td>', '<a href="/q?s=AAPL&d=c&p=b&t=&l=on&z=m&q=l">Bollinger Bands</a> | <a href="/q?s=AAPL&d=c&p=p&t=&l=on&z=m&q=l">Parabolic SAR</a> | <a href="/q?s=AAPL&d=c&p=s&t=&l=on&z=m&q=l">Splits</a> | <a href="/q?s=AAPL&d=c&p=v&t=&l=on&z=m&q=l">Volume</a> | <a href="/q?s=AAPL&d=c&t=&l=on&z=m&q=l">[All Off]</a>"
+                                    peg_ratio : r5    --> 1.29
+           price_to_eps_estimate_current_year : r6    --> 15.04
+              price_to_eps_estimate_next_year : r7    --> 13.73
+                                       UNUSED : r8    --> ""
+                                       UNUSED : r9    --> "N/A"
+                                       UNUSED : s     --> "AAPL"
+                                       symbol : s0    --> "AAPL"
+                                 shares_owned : s1    --> -
+                                       UNUSED : s2    --> "AAPL"
+                                       UNUSED : s3    --> "N/A"
+                                       UNUSED : s4    --> "AAPL"
+                                       UNUSED : s5    --> ""
+                                      revenue : s6    --> 176.0B
+                                  short_ratio : s7    --> 1.70
+                                       UNUSED : s8    --> ""
+                                       UNUSED : s9    --> ""
+                                       UNUSED : t     --> "<img border=0  width=512 height=288', 'src="http://chart.yahoo.com/c//a/aapl.gif" alt="Chart"><br><table><tr><td width=512 align=center><font face=arial size=-1></font></td></tr></table>"
+                                       UNUSED : t0    --> "<img border=0  width=512 height=288', 'src="http://chart.yahoo.com/c//a/aapl.gif" alt="Chart"><br><table><tr><td width=512 align=center><font face=arial size=-1></font></td></tr></table>"
+                              last_trade_time : t1    --> "3:59pm"
+                                       UNUSED : t2    --> "<img border=0  width=512 height=288', 'src="http://chart.yahoo.com/c//a/aapl.gif" alt="Chart"><br><table><tr><td width=512 align=center><font face=arial size=-1></font></td></tr></table>"
+                                       UNUSED : t3    --> N/A
+                                       UNUSED : t4    --> N/A
+                                       UNUSED : t5    --> "N/A"
+                                  trade_links : t6    --> "<a href="http://edit.finance.yahoo.com/ef?.intl=us&.done=http://finance.yahoo.com/d/quotes.csv%3fs%3dAAPL%26f%3dt6">Choose&nbsp;Brokerage</a>"
+                                 ticker_trend : t7    --> "&nbsp;======&nbsp;"
+                            1_yr_target_price : t8    --> 97.26
+                                       UNUSED : t9    --> ""
+                                       UNUSED : u     --> "<img border=0  width=512 height=288', 'src="http://chart.yahoo.com/c//a/aapl.gif" alt="Chart">"
+                                       UNUSED : u0    --> "<img border=0  width=512 height=288', 'src="http://chart.yahoo.com/c//a/aapl.gif" alt="Chart">"
+                                       UNUSED : u1    --> ""
+                                       UNUSED : u2    --> "<img border=0  width=512 height=288', 'src="http://chart.yahoo.com/c//a/aapl.gif" alt="Chart">"
+                                       UNUSED : u3    --> "<img border=0  width=512 height=288', 'src="http://chart.yahoo.com/c//a/aapl.gif" alt="Chart">"
+                                       UNUSED : u4    --> ""
+                                       UNUSED : u5    --> ""
+                                       UNUSED : u6    --> ""
+                                       UNUSED : u7    --> ""
+                                       UNUSED : u8    --> ""
+                                       UNUSED : u9    --> ""
+                                       UNUSED : v     --> 34018228
+                                       volume : v0    --> 34018228
+                               holdings_value : v1    --> -
+                                       UNUSED : v2    --> 95.22
+                                       UNUSED : v3    --> N/A
+                                       UNUSED : v4    --> N/A
+                                       UNUSED : v5    --> N/A
+                                       UNUSED : v6    --> 34018228
+                            holdings_value_rt : v7    --> N/A
+                                       UNUSED : v8    --> "N/A"
+                                       UNUSED : v9    --> ""
+                                       UNUSED : w     --> "59.8157 - 96.80"
+                                52-week_range : w0    --> "59.8157 - 96.80"
+                             day_value_change : w1    --> "- - +0.19%"
+                                       UNUSED : w2    --> -
+                                       UNUSED : w3    --> ""
+                          day_value_change_rt : w4    --> "N/A - N/A"
+                                       UNUSED : w5    --> N/A
+                                       UNUSED : w6    --> ""
+                                       UNUSED : w7    --> ""
+                                       UNUSED : w8    --> ""
+                                       UNUSED : w9    --> ""
+                                       UNUSED : x     --> "NasdaqNM"
+                               stock_exchange : x0    --> "NasdaqNM"
+                                       UNUSED : x1    --> ""
+                                       UNUSED : x2    --> ""
+                                       UNUSED : x3    --> ""
+                                       UNUSED : x4    --> ""
+                                       UNUSED : x5    --> ""
+                                       UNUSED : x6    --> ""
+                                       UNUSED : x7    --> ""
+                                       UNUSED : x8    --> ""
+                                       UNUSED : x9    --> ""
+                                       UNUSED : y     --> 1.87
+                               dividend_yield : y0    --> 1.87
+                                       UNUSED : y1    --> Jul 11 - <b>95.22</b>
+                                       UNUSED : y2    --> 95.22
+                                       UNUSED : y3    --> ""
+                                       UNUSED : y4    --> ""
+                                       UNUSED : y5    --> ""
+                                       UNUSED : y6    --> ""
+                                       UNUSED : y7    --> ""
+                                       UNUSED : y8    --> ""
+                                       UNUSED : y9    --> ""
+                                       UNUSED : z     --> "</tr><tr align=center valign=top bgcolor=white>"
+                                       UNUSED : z0    --> "</tr><tr align=center valign=top bgcolor=white>"
+                                       UNUSED : z1    --> "</tr><tr align=center bgcolor=white>"
+                                       UNUSED : z2    --> "<hr size=0>"
+                                       UNUSED : z3    --> 
+                                       UNUSED : z4    --> "<tr>"
+                                       UNUSED : z5    --> "</tr>"
+                                       UNUSED : z6    --> "</tr><tr>"
+                                       UNUSED : z7    --> "</tr><tr align=center valign=middle bgcolor=white>"
+                                       UNUSED : z8    --> ""
+                                       UNUSED : z9    --> ""

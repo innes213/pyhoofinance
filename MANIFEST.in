@@ -1,0 +1,9 @@
+include *.txt
+include *.py
+recursive-include pyhoofinance *.py
+recursive-include docs *.txt
+include bin/example.py
+include bin/example1.py
+include bin/input/SandP500.csv
+prune bin/yahooapitest.py
+prune bin/yahooapihack.py
