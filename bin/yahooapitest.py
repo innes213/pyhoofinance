@@ -38,4 +38,4 @@ def get_quote(symbol, dataKey):
 if __name__=='__main__':
     for data in YAHOO_FINANCE_KEYS_DICT:
         key = YAHOO_FINANCE_KEYS_DICT[data]
-        print('{0:>42} = {1:3} --> {2}'.format(data, key, get_quote('YHOO',key)))
+        print('{0:>42} = {1:3} --> {2}'.format(data, key, get_quote('TWTR',key)))
