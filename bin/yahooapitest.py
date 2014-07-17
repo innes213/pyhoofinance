@@ -8,7 +8,8 @@ with every allowable data key, one at a time
 and prints the raw output
 """
 import urllib2
-from pyhoofinance import *
+from pyhoofinance import * # Useful constants
+import pyhoofinance
 
 def get_quote(symbol, dataKey):
     """

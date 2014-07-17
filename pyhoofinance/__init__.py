@@ -9,5 +9,6 @@
 # GNU General Public License (or the Lesser GPL)
 # version 3.
 
-import urllib2
+import quotedata
+import historicdata
 from defs import *

@@ -48,3 +48,13 @@ pyhoofinance.egg-info/dependency_links.txt
 pyhoofinance.egg-info/SOURCES.txt
 
 pyhoofinance.egg-info/top_level.txt
+
+build/lib/pyhoofinance/__init__.py
+
+build/lib/pyhoofinance/defs.py
+
+build/lib/pyhoofinance/historicdata.py
+
+build/lib/pyhoofinance/quotedata.py
+
+*.egg

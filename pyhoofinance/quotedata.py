@@ -168,7 +168,7 @@ def get_quotes(symbols, quoteData = STANDARDQUOTE, raw = False):
     # Retreive quotes from Yahoo, up to 200 at a time
     for i in range(numFullBlocks):
         symbolBlock = symbols[i * blockSize:(i + 1) * blockSize]
-        quoteList.extend(_get_quote_block(symbolBlock,quoteDescriptionList, tokenStr, tokenCommaList))
+        quoteList.extend(_get_quote_block(symbolBlock,quoteDescriptionList, ''.join(tokenList), tokenCommaList))
     
     # Add the last block of quotes (< 200)
     quoteList.extend(_get_quote_block(symbols[-lenPartialBlock:],quoteDescriptionList, ''.join(tokenList), tokenCommaList))

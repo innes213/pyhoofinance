@@ -11,7 +11,7 @@
    
 from setuptools import setup, find_packages
 
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 setup(
     name='pyhoofinance',
     version=__version__,
@@ -20,5 +20,5 @@ setup(
     packages=find_packages(),
     license='GNU LGPL License',
     description='Set of functions for retreiving equity data from Yahoo finance',
-    long_description='This module queries Yahoo Finance for multiple tickers and rapidly return typed data. It will also retrieve historic information, formatted into the proper data type. It is designed for performing analysis quickly with large numbers of symbols.'
+    long_description='This module queries Yahoo Finance for multiple tickers and rapidly returns typed data. It will also retrieve historic information, formatted into the proper data type. It is designed for performing analysis quickly with large numbers of symbols.'
 )

@@ -1,1 +1,6 @@
 v0.1.0, 20140715 -- Initial release.
+
+v0.1.1, 20140717 —- Modules now available at package level, bug fix
+
+* updated __init__.py to import submodules
+* fixed bug when acquiring data for more than 199 symbols
