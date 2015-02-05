@@ -1,6 +1,4 @@
-============
-pyhoofinance
-============
+#h1 pyhoofinance
 
 pyhoofinance is a set of tools to query Yahoo Finance's
 API. These tools are designed for applications which need 
@@ -9,6 +7,7 @@ default, is properly typecast for easy analysis. It is
 designed for flexibility and to minimize server queries.
 For example:
 
+```python
 #!/usr/bin/env python
 
 from pyhoofinance import quotedata     # Current stock data
@@ -29,8 +28,11 @@ for quote in quotedata.get_quotes(['YHOO','GOOGL','AAPL','MSFT','SPY','GLD'],MIN
 print('\nYHOO data for the 5 most recent trading days')
 for day in historicdata.get_number_of_historical_quotes('YHOO',5):
         print(day)
+```
+
   Results:
 
+```
 YAHOO standard quote, typed data
 [{'previous_close': 35.43, '1_yr_target_price': 41.23, 'day_low': 35.45, 'error_indication': 'N/A', 'name': 'Yahoo! Inc.', '52_week_high': 41.72, 'average_daily_volume': 19843500.0, 'pe_ratio': 29.55, 'symbol': 'YHOO', 'earnings_per_share': 1.199, 'volume': 18688504.0, 'trailing_dividend_per_share': 0.0, 'market_capitalization': 35943000000.0, 'last_trade_date': datetime.date(2014, 7, 14), 'last_trade_price_only': 35.7, 'day_high': 35.95, 'dividend_yield': None, 'open': 35.74, '52_week_low': 26.73, 'change': 0.27}]
 
@@ -48,11 +50,10 @@ YHOO data for the 5 most recent trading days
 {'day_low': 34.1, 'symbol': 'YHOO', 'trade_date': datetime.date(2014, 7, 10), 'volume': 18064800.0, 'last_trade_price_only': 34.93, 'day_high': 34.97, 'open': 34.33, 'adjusted_close': 34.93}
 {'day_low': 34.78, 'symbol': 'YHOO', 'trade_date': datetime.date(2014, 7, 11), 'volume': 18303700.0, 'last_trade_price_only': 35.43, 'day_high': 35.56, 'open': 34.95, 'adjusted_close': 35.43}
 {'day_low': 35.45, 'symbol': 'YHOO', 'trade_date': datetime.date(2014, 7, 14), 'volume': 18680500.0, 'last_trade_price_only': 35.7, 'day_high': 35.95, 'open': 35.8, 'adjusted_close': 35.7}
+```
 
 
-
-Getting Current Stock Data
-==========================
+## h2 Getting Current Stock Data
 
 To get current stock data, use the function get_quotes() in quotedata.py
 
@@ -68,15 +69,15 @@ To get current stock data, use the function get_quotes() in quotedata.py
                |          |     |
 get_quotes(symbolList,dataList,raw)
 
-Getting Historic data
-=====================
+## h2 Getting Historic Data
+
 Yahoo's historic stock data API is a little different. There is no way to grab
 data for more than one symbol at a time. pyhoofinance does offer two options 
 for retreiving data: via number of days or specific range of dates.
 Also, there is currently no option to return data as raw strings.
 
-Stock data for range of days
-----------------------------
+### h3 Stock Data For Range of Days
+
 To get data for a range of days from a start date to an enddate (inclusive), use
 get_range_of_historical_prices.
                                   ------------------Symbol. For example 'YHOO'
@@ -88,8 +89,8 @@ get_range_of_historical_prices.
                                   |        |         |
 get_range_of_historical_quotes(symbol, startDate, endDate)
 
-Stock data for number of days
------------------------------
+### h3 Stock Data For Number of Days
+
 This is an incredibly useful building block for calculating averages. In order
 to get historic stock data for a number of days, use 
 get_number_of_historic_quotes().

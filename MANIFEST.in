@@ -1,7 +1,8 @@
-include *.txt
+include *.md
 include *.py
 recursive-include pyhoofinance *.py
 recursive-include docs *.txt
+include test/*.py
 include bin/example.py
 include bin/example1.py
 include bin/input/SandP500.csv
