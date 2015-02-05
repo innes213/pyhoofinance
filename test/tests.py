@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-#  pyhoofinance - historicdata.py
+#  pyhoofinance - tests.py
 #
 #  Copyright (c) 2014, Rob Innes Hislop
 #  email:robinneshislop__AT__gmail.com
