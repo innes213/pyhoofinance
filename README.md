@@ -1,4 +1,4 @@
-#h1 pyhoofinance
+# pyhoofinance
 
 pyhoofinance is a set of tools to query Yahoo Finance's
 API. These tools are designed for applications which need 
@@ -53,7 +53,7 @@ YHOO data for the 5 most recent trading days
 ```
 
 
-## h2 Getting Current Stock Data
+## Getting Current Stock Data
 
 To get current stock data, use the function get_quotes() in quotedata.py
 
@@ -69,14 +69,14 @@ To get current stock data, use the function get_quotes() in quotedata.py
                |          |     |
 get_quotes(symbolList,dataList,raw)
 
-## h2 Getting Historic Data
+## Getting Historic Data
 
 Yahoo's historic stock data API is a little different. There is no way to grab
 data for more than one symbol at a time. pyhoofinance does offer two options 
 for retreiving data: via number of days or specific range of dates.
 Also, there is currently no option to return data as raw strings.
 
-### h3 Stock Data For Range of Days
+### Stock Data For Range of Days
 
 To get data for a range of days from a start date to an enddate (inclusive), use
 get_range_of_historical_prices.
@@ -89,7 +89,7 @@ get_range_of_historical_prices.
                                   |        |         |
 get_range_of_historical_quotes(symbol, startDate, endDate)
 
-### h3 Stock Data For Number of Days
+### Stock Data For Number of Days
 
 This is an incredibly useful building block for calculating averages. In order
 to get historic stock data for a number of days, use 
