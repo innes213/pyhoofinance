@@ -69,6 +69,23 @@ To get current stock data, use the function get_quotes() in quotedata.py
                |          |     |
 get_quotes(symbolList,dataList,raw)
 
+To query for data for a single symbol, the function get_quote() in quotedata.py
+can be used although it simply creates a single item list and calls get_quotes.
+
+To get current stock data, use the function get_quotes() in quotedata.py
+
+               —————————Single symbol. For ‘example YHOO'
+               |
+               |     ---------List of requested data (like [VOLUME_STR,
+               |     |        LAST_TRADE_PRICE_ONLY_STR]
+               |     |        or some predefined list like MINIQUOTE. Default is 
+               |     |        STANDARDQUOTE 
+               |     |       
+               |     |     -----Raw/untyped (string) data? Default is false 
+               |     |     |    (typedef'd data)
+               |     |     |
+get_quote(symbol,dataList,raw)
+
 ## Getting Historic Data
 
 Yahoo's historic stock data API is a little different. There is no way to grab

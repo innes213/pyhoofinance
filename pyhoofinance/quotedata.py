@@ -2,7 +2,7 @@
 #
 #  pyhoofinance - quotedata.py
 #
-#  Copyright (c) 2014, Rob Innes Hislop
+#  Copyright (c) 2014-2015, Rob Innes Hislop
 #  email:robinneshislop__AT__gmail.com
 #
 # This library is distributed under the terms of the 
@@ -177,19 +177,23 @@ def get_quotes(symbols, quoteData = STANDARDQUOTE, raw = False):
     if (quoteList != []) and (not raw):
         quoteList = _format_quote_data(quoteList)
     return quoteList
-   
-   
+
+def get_quote(symbol, quoteData = STANDARDQUOTE, raw = False):
+    """
+    Returns requested quote data (quoteData) for a single valid symbol
+    If raw is true, the raw text values are returned, otherwise values are properly
+    typecast.
+    """
+    symbolList = []
+    symbolList.append(symbol)
+    return get_quotes(symbolList,quoteData, raw)[0]
+
 if (__name__ == '__main__'):
     
     try:
+        print(get_quote('YHOO'))
         print(get_quotes(['YHOO']))
         print(get_quotes(['YHOO'],MINIQUOTE,True))
     except:
+        print('BALLS!')
         exit(1)
-    """
-    try:
-        print(get_quotes(['YHOO'],[SYMBOL_STR,FLOAT_SHARES_STR,SHARES_OUTSTANDING_STR,NAME_STR]))
-        print(get_quotes(['YHOO','GOOGL','AAPL'],[SYMBOL_STR,FLOAT_SHARES_STR,SHARES_OUTSTANDING_STR,NAME_STR]))
-    except:
-        exit(1)
-    """
