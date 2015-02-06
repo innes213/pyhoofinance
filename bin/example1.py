@@ -2,8 +2,8 @@
 #
 #  pyhoofinance - example1.py
 #
-#  Copyright (c) 2014, Rob Innes Hislop
-#  email:robinneshislop@gmail.com
+#  Copyright (c) 2014-2015, Rob Innes Hislop
+#  email:robinneshislop__AT__gmail.com
 #
 # This library is distributed under the terms of the 
 # GNU General Public License (or the Lesser GPL)

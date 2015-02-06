@@ -1,6 +1,12 @@
-v0.1.0, 20140715 -- Initial release.
+v0.1.2 20150205 —- Adding tests and ‘get_quote()’ function
+
+* Added basic unit tests which use pyrest
+* Added get_quote for querying for data for a single function
+* Updated documentation
 
 v0.1.1, 20140717 —- Modules now available at package level, bug fix
 
 * updated __init__.py to import submodules
 * fixed bug when acquiring data for more than 199 symbols
+
+v0.1.0, 20140715 -- Initial release.
