@@ -5,7 +5,12 @@ API. These tools are designed for applications which need
 to grab large numbers of quotes. Additionally, data, by 
 default, is properly typecast for easy analysis. It is 
 designed for flexibility and to minimize server queries.
-For example:
+
+## Installation
+
+pip install pyhoofinance
+
+## Example
 
 ```python
 #!/usr/bin/env python

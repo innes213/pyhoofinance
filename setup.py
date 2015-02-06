@@ -2,7 +2,7 @@
 #
 #  pyhoofinance - setup.py
 #
-#  Copyright (c) 2014, Rob Innes Hislop
+#  Copyright (c) 2014-2015, Rob Innes Hislop
 #  email:robinneshislop__AT__gmail.com
 #
 # This library is distributed under the terms of the 
@@ -11,12 +11,12 @@
    
 from setuptools import setup, find_packages
 
-__version__ = '0.1.1'
+__version__ = '0.1.2'
 setup(
     name='pyhoofinance',
     version=__version__,
     author='Rob Innes Hislop',
-    author_email='robinneshislop@gmail.com',
+    author_email='robinneshislop_at_gmail.com',
     packages=find_packages(),
     license='GNU LGPL License',
     description='Set of functions for retreiving equity data from Yahoo finance',
