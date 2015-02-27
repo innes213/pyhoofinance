@@ -74,9 +74,9 @@ To get current stock data for multiple symbols, use the method `get_quotes()` in
 get_quotes(symbolList,dataList,raw)
 ```
 
-`symbolList`: List of symbols. For example `[‘YHOO','GOOGL’]`.
-`dataList`: List of requested data (like `[VOLUME_STR, LAST_TRADE_PRICE_ONLY_STR]` or some predefined list like `MINIQUOTE`. Default is `STANDARDQUOTE`. 
-`raw`: Boolean declaring whether to return raw or typed data. Default is `false` (typed data).
+* `symbolList`: List of symbols. For example `[‘YHOO','GOOGL’]`.
+* `dataList`: List of requested data (like `[VOLUME_STR, LAST_TRADE_PRICE_ONLY_STR]` or some predefined list like `MINIQUOTE`. Default is `STANDARDQUOTE`. 
+* `raw`: Boolean declaring whether to return raw or typed data. Default is `false` (typed data).
 
 ### Getting Data for Single Symbol
 
@@ -87,9 +87,9 @@ can be used although it simply creates a single item list and calls `get_quotes`
 get_quote(symbol,dataList,raw)
 ```
 
-`symbol`: Symbol string. For example `’YHOO’`. 
-`dataList`: List of requested data (like `[VOLUME_STR, LAST_TRADE_PRICE_ONLY_STR]` or some predefined list like `MINIQUOTE`. Default is `STANDARDQUOTE`.
-`raw`: Boolean declaring whether to return raw or typed data. Default is `false` (typed data).
+* `symbol`: Symbol string. For example `’YHOO’`. 
+* `dataList`: List of requested data (like `[VOLUME_STR, LAST_TRADE_PRICE_ONLY_STR]` or some predefined list like `MINIQUOTE`. Default is `STANDARDQUOTE`.
+* `raw`: Boolean declaring whether to return raw or typed data. Default is `false` (typed data).
 
 ## Getting Historic Data
 
@@ -108,9 +108,9 @@ To get data for a range of days from a start date to an enddate (inclusive), use
 get_range_of_historical_quotes(symbol, startDate, endDate)
 ```
 
-`symbol`: Symbol string. For example `’YHOO’`.
-`startDate`: First date to grab. Date type.
-`endDate`: Last date (date type) to grab. Default is `datetime.today()`.
+* `symbol`: Symbol string. For example `’YHOO’`.
+* `startDate`: First date to grab. Date type.
+* `endDate`: Last date (date type) to grab. Default is `datetime.today()`.
 
 ### Stock Data For Number of Days
 
@@ -122,7 +122,7 @@ to get historic stock data for a number of days, use
 get_number_of_historical_quotes(symbol, numDays, endDate)
 ```
 
-`symbol`: Symbol string. For example `’YHOO’`.
-`numDays`: Integer number of days of data to retrieve.
-`endDate`: Last date (date type) to grab. Default is `datetime.today()`.
+* `symbol`: Symbol string. For example `’YHOO’`.
+* `numDays`: Integer number of days of data to retrieve.
+* `endDate`: Last date (date type) to grab. Default is `datetime.today()`.
 
