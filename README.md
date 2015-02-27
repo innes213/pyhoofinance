@@ -8,9 +8,11 @@ designed for flexibility and to minimize server queries.
 
 ## Installation
 
+```
 pip install pyhoofinance
+```
 
-## Example
+## Example Usage
 
 ```python
 #!/usr/bin/env python
@@ -36,7 +38,7 @@ for day in historicdata.get_number_of_historical_quotes('YHOO',5):
         print(day)
 ```
 
-  **Results:**
+**Results:**
 
 ```
 YAHOO standard quote, typed data
@@ -66,32 +68,28 @@ YHOO data for the 5 most recent trading days
 
 ### Getting Data for Multiple Symbols
 
-To get current stock data for multiple symbols, use the method ```get_quotes()``` in quotedata.py. Using this method for multiple symbols is up to 200 times faster than querying for each symbol individually.
-
-**Example:**
+To get current stock data for multiple symbols, use the method `get_quotes()` in quotedata.py. Using this method for multiple symbols is up to 200 times faster than querying for each symbol individually.
 
 ```python
 get_quotes(symbolList,dataList,raw)
 ```
 
-```symbolList```: List of symbols. For example ```[‘YHOO','GOOGL’]```
-```dataList```: List of requested data (like ```[VOLUME_STR, LAST_TRADE_PRICE_ONLY_STR]``` or some predefined list like ```MINIQUOTE```. Default is ```STANDARDQUOTE``` 
-```raw```: Boolean declaring whether to return raw or typed data. Default is ```false``` (typed data).
+`symbolList`: List of symbols. For example `[‘YHOO','GOOGL’]`.
+`dataList`: List of requested data (like `[VOLUME_STR, LAST_TRADE_PRICE_ONLY_STR]` or some predefined list like `MINIQUOTE`. Default is `STANDARDQUOTE`. 
+`raw`: Boolean declaring whether to return raw or typed data. Default is `false` (typed data).
 
 ### Getting Data for Single Symbol
 
-To query for data for a single symbol, the method ```get_quote()``` in quotedata.py
-can be used although it simply creates a single item list and calls get_quotes.
-
-**Example:**
+To query for data for a single symbol, the method `get_quote()` in quotedata.py
+can be used although it simply creates a single item list and calls `get_quotes`.
 
 ```python
 get_quote(symbol,dataList,raw)
 ```
 
-```symbol```: Symbol string. For example `’``YHOO’```.
-```dataList```: List of requested data (like ```[VOLUME_STR, LAST_TRADE_PRICE_ONLY_STR]``` or some predefined list like ```MINIQUOTE```. Default is ```STANDARDQUOTE``` 
-```raw```: Boolean declaring whether to return raw or typed data. Default is ```false``` (typed data).
+`symbol`: Symbol string. For example `’YHOO’`. 
+`dataList`: List of requested data (like `[VOLUME_STR, LAST_TRADE_PRICE_ONLY_STR]` or some predefined list like `MINIQUOTE`. Default is `STANDARDQUOTE`.
+`raw`: Boolean declaring whether to return raw or typed data. Default is `false` (typed data).
 
 ## Getting Historic Data
 
@@ -104,32 +102,27 @@ Note: there is currently no option to return data as raw strings.
 ### Stock Data For Range of Days
 
 To get data for a range of days from a start date to an enddate (inclusive), use
-```get_range_of_historical_prices()```.
-
-**Example:**
+`get_range_of_historical_prices()`.
 
 ```python                                  
 get_range_of_historical_quotes(symbol, startDate, endDate)
 ```
 
-```symbol```: Symbol string. For example `’``YHOO’```.
-```startDate```: First date to grab. Date type.
-```endDate```: Last date (date type) to grab. Default is ```datetime.today()```.
+`symbol`: Symbol string. For example `’YHOO’`.
+`startDate`: First date to grab. Date type.
+`endDate`: Last date (date type) to grab. Default is `datetime.today()`.
 
 ### Stock Data For Number of Days
 
 This is an incredibly useful building block for calculating averages. In order
 to get historic stock data for a number of days, use 
-```get_number_of_historic_quotes()```.
-
-
-**Example:**
+`get_number_of_historic_quotes()`.
 
 ```python
 get_number_of_historical_quotes(symbol, numDays, endDate)
 ```
 
-```symbol```: Symbol string. For example `’``YHOO’```.
-```numDays```: Integer number of days of data to retrieve.
-```endDate```: Last date (date type) to grab. Default is ```datetime.today()```.
+`symbol`: Symbol string. For example `’YHOO’`.
+`numDays`: Integer number of days of data to retrieve.
+`endDate`: Last date (date type) to grab. Default is `datetime.today()`.
 
