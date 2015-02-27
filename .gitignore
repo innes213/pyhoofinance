@@ -58,3 +58,5 @@ build/lib/pyhoofinance/historicdata.py
 build/lib/pyhoofinance/quotedata.py
 
 *.egg
+
+*.gz
