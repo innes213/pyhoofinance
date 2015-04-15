@@ -20,13 +20,13 @@ from pyhoofinance import * # This makes some useful constants available, like AV
 from operator import itemgetter
 
 # Load symbols into a list
-symbollistfile="./input/SandP500.csv" #actually 501 symbols as Google has 2 tickers: GOOG and GOOGL (http://www.cnbc.com/id/101535041)
+symbollistfile="./input/SandP500.csv" # actually 502 symbols
 f = open(symbollistfile)
 symbols = f.read().splitlines()
 f.close()
 
 # Append a bad symbol for demo purposes
-symbols.append('N.VLD')
+#symbols.append('N.VLD')
 
 # Define exactly what data we want (we don't have to do this but it will save a little memory
 # Requested item strings are defined in pyhoofinance * 
@@ -40,9 +40,8 @@ invalidQuotes = []
 validQuotes = []
 
 for quote in quoteList:
-    
     # Check if Yahoo reported an error regarding the symbol
-    if quote[ERROR_INDICATION_STR].find('N/A') == -1:
+    if quote[ERROR_INDICATION_STR].upper().find('N/A') == -1:
         invalidQuotes.append(quote)
     else:
         # Do something with the data!

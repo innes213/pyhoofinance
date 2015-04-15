@@ -1,3 +1,11 @@
+v0.2.0 20150413 —— Supporting new Yahoo finance API
+
+* removed redundant tokens
+* removed deprecated tokens
+* updated list of fields containing commas
+* now retrieves up to 1000 quotes at a time
+* updated S&P 500 input list
+
 v0.1.2 20150205 —- Adding tests and ‘get_quote()’ function
 
 * Added basic unit tests which use pyrest

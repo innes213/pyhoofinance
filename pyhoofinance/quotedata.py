@@ -127,7 +127,7 @@ def get_quotes(symbols, quoteData = STANDARDQUOTE, raw = False):
     If raw is true, the raw text values are returned, otherwise values are properly
     typecast.
     """
-    blockSize=200 # Maximum number of quotes per request allowed by Yahoo finance API
+    blockSize=1000 # Maximum number of quotes per request allowed by Yahoo finance API
     quoteList = []
     
     # Validate quote request desc and look up corresponding key     
@@ -165,12 +165,12 @@ def get_quotes(symbols, quoteData = STANDARDQUOTE, raw = False):
     # Calulate the number of blocks and the remainder symbols
     numFullBlocks, lenPartialBlock = divmod(len(symbols), blockSize)
     
-    # Retreive quotes from Yahoo, up to 200 at a time
+    # Retreive quotes from Yahoo, up to BlockSize at a time
     for i in range(numFullBlocks):
         symbolBlock = symbols[i * blockSize:(i + 1) * blockSize]
         quoteList.extend(_get_quote_block(symbolBlock,quoteDescriptionList, ''.join(tokenList), tokenCommaList))
     
-    # Add the last block of quotes (< 200)
+    # Add the last block of quotes (< BlockSize)
     quoteList.extend(_get_quote_block(symbols[-lenPartialBlock:],quoteDescriptionList, ''.join(tokenList), tokenCommaList))
 
     # Type date strings and dates and numeric strings as floats

@@ -172,111 +172,73 @@ EXTENDEDQUOTE = [SYMBOL_STR, \
                  PEG_RATIO_STR, \
                  TRAILING_DIVIDEND_PER_SHARE_STR, \
                  STOCK_EXCHANGE_STR, \
-                 MORE_INFO_STR, \
                  NAME_STR]
 
 """
 Internal global constants
 """
 
-YAHOO_FINANCE_KEYS_DICT =  {ASK_STR                                         : 'a0'  , \
+YAHOO_FINANCE_KEYS_DICT =  {ASK_STR                                         : 'a'  , \
                             AVERAGE_DAILY_VOLUME_STR                        : 'a2' , \
                             ASK_SIZE_STR                                    : 'a5' , \
-                            BID_STR                                         : 'b0'  , \
-                            ASK_RT_STR                                      : 'b2' , \
-                            BID_RT_STR                                      : 'b3' , \
+                            BID_STR                                         : 'b'  , \
                             BOOK_VALUE_STR                                  : 'b4' , \
                             BID_SIZE_STR                                    : 'b6' , \
-                            CHANGE_AND_PERCENT_CHANGE_STR                   : 'c0'  , \
+                            CHANGE_AND_PERCENT_CHANGE_STR                   : 'c'  , \
                             CHANGE_STR                                      : 'c1' , \
-                            COMMISSION_STR                                  : 'c3' , \
                             CURRENCY_STR                                    : 'c4' , \
-                            CHANGE_RT_STR                                   : 'c6' , \
-                            AFTER_HOURS_CHANGE_RT_STR                       : 'c8' , \
-                            TRAILING_DIVIDEND_PER_SHARE_STR                 : 'd0' , \
+                            TRAILING_DIVIDEND_PER_SHARE_STR                 : 'd' , \
                             LAST_TRADE_DATE_STR                             : 'd1' , \
-                            TRADE_DATE_STR                                  : 'd2' , \
-                            EARNINGS_PER_SHARE_STR                          : 'e0' , \
+                            EARNINGS_PER_SHARE_STR                          : 'e' , \
                             ERROR_INDICATION_STR                            : 'e1' , \
                             EPS_ESTIMATE_CURRENT_YEAR_STR                   : 'e7' , \
                             EPS_ESTIMATE_NEXT_YEAR_STR                      : 'e8' , \
                             EPS_ESTIMATE_NEXT_QUARTER_STR                   : 'e9' , \
                             FLOAT_SHARES_STR                                : 'f6' , \
-                            DAY_LOW_STR                                     : 'g0' , \
-                            DAY_HIGH_STR                                    : 'h0' , \
-                            FIFTYTWO_WEEK_LOW_STR                           : 'j0' , \
-                            FIFTYTWO_WEEK_HIGH_STR                          : 'k0' , \
-                            HOLDINGS_GAIN_PERCENT_STR                       : 'g1' , \
-                            ANNUALIZED_GAIN_STR                             : 'g3' , \
-                            HOLDINGS_GAIN_STR                               : 'g4' , \
-                            HOLDINGS_GAIN_PERCENT_RT_STR                    : 'g5' , \
-                            HOLDINGS_GAIN_RT_STR                            : 'g6' , \
-                            MORE_INFO_STR                                   : 'i0' , \
-                            ORDER_BOOK_RT_STR                               : 'i5' , \
+                            DAY_LOW_STR                                     : 'g' , \
+                            DAY_HIGH_STR                                    : 'h' , \
+                            FIFTYTWO_WEEK_LOW_STR                           : 'j' , \
+                            FIFTYTWO_WEEK_HIGH_STR                          : 'k' , \
                             MARKET_CAPITALIZATION_STR                       : 'j1' , \
                             SHARES_OUTSTANDING_STR                          : 'j2' , \
-                            MARKET_CAP_RT_STR                               : 'j3' , \
                             EBITDA_STR                                      : 'j4' , \
                             CHANGE_FROM_52_WEEK_LOW_STR                     : 'j5' , \
                             PERCENT_CHANGE_FROM_52_WEEK_LOW_STR             : 'j6' , \
-                            LAST_TRADE_RT_WITH_TIME_STR                     : 'k1' , \
-                            CHANGE_PERCENT_RT_STR                           : 'k2' , \
                             LAST_TRADE_SIZE_STR                             : 'k3' , \
                             CHANGE_FROM_52_WEEK_HIGH_STR                    : 'k4' , \
                             PERCEBT_CHANGE_FROM_52_WEEK_HIGH_STR            : 'k5' , \
-                            LAST_TRADE_RT_STR                               : 'l0' , \
+                            LAST_TRADE_RT_STR                               : 'l' , \
                             LAST_TRADE_PRICE_ONLY_STR                       : 'l1' , \
-                            HIGH_LIMIT_STR                                  : 'l2' , \
-                            LOW_LIMIT_STR                                   : 'l3' , \
-                            DAY_RANGE_STR                                   : 'm0' , \
-                            DAY_RANGE_RT_STR                                : 'm2' , \
+                            DAY_RANGE_STR                                   : 'm' , \
                             FIFTY_DAY_MOVING_AVERAGE_STR                    : 'm3' , \
                             TWOHUNDRED_DAY_MOVING_AVERAGE_STR               : 'm4' , \
                             CHANGE_FROM_200_DAY_MOVING_AVERAGE_STR          : 'm5' , \
                             PERCENT_CHANGE_FROM_200_DAY_MOVING_AVERAGE_STR  : 'm6' , \
                             CHANGE_FROM_50_DAY_MOVING_AVERAGE_STR           : 'm7' , \
                             PERCENT_CHANGE_FROM_50_DAY_MOVING_AVERAGE_STR   : 'm8' , \
-                            NAME_STR                                        : 'n0' , \
-                            NOTES_STR                                       : 'n4' , \
-                            OPEN_STR                                        : 'o0' , \
-                            PREVIOUS_CLOSE_STR                              : 'p0' , \
-                            PRICE_PAID_STR                                  : 'p1' , \
+                            NAME_STR                                        : 'n' , \
+                            OPEN_STR                                        : 'o' , \
+                            PREVIOUS_CLOSE_STR                              : 'p' , \
                             CHANGE_IN_PERCENT_STR                           : 'p2' , \
                             PRICE_TO_SALES_STR                              : 'p5' , \
                             PRICE_TO_BOOK_STR                               : 'p6' , \
-                            EX_DIVIDEND_DATE_STR                            : 'q0' , \
-                            PE_RATIO_STR                                    : 'r0' , \
+                            EX_DIVIDEND_DATE_STR                            : 'q' , \
+                            PE_RATIO_STR                                    : 'r' , \
                             DIVIDEND_PAY_DATE_STR                           : 'r1' , \
-                            PE_RATIO_RT_STR                                 : 'r2' , \
-                            #CHART_OVERLAYS_LINKS_STR                        : 'r3' , \
-                            #CHART_LOWER_INDICATORS_LINKS_STR                : 'r4' , \
                             PEG_RATIO_STR                                   : 'r5' , \
                             PRICE_TO_EPS_ESTIMATE_CURRENT_YEAR_STR          : 'r6' , \
                             PRICE_TO_EPS_ESTIMATE_NEXT_YEAR_STR             : 'r7' , \
-                            SYMBOL_STR                                      : 's0' , \
-                            SHARES_OWNED_STR                                : 's1' , \
+                            SYMBOL_STR                                      : 's' , \
                             REVENUE_STR                                     : 's6' , \
                             SHORT_RATIO_STR                                 : 's7' , \
                             LAST_TRADE_TIME_STR                             : 't1' , \
-                            #TRADE_LINKS_STR                                 : 't6' , \
-                            TICKER_TREND_STR                                : 't7' , \
                             ONE_YR_TARGET_PRICE_STR                         : 't8' , \
-                            VOLUME_STR                                      : 'v0' , \
-                            HOLDINGS_VALUE_STR                              : 'v1' , \
-                            HOLDINGS_VALUE_RT_STR                           : 'v7' , \
-                            FIFTYTWO_WEEK_RANGE_STR                         : 'w0' , \
-                            DAY_VALUE_CHANGE_STR                            : 'w1' , \
-                            DAY_VALUE_CHANGE_RT_STR                         : 'w4' , \
-                            STOCK_EXCHANGE_STR                              : 'x0' , \
-                            DIVIDEND_YIELD_STR                              : 'y0'   }                        
+                            VOLUME_STR                                      : 'v' , \
+                            FIFTYTWO_WEEK_RANGE_STR                         : 'w' , \
+                            STOCK_EXCHANGE_STR                              : 'x' , \
+                            DIVIDEND_YIELD_STR                              : 'y'   }
 
-QUOTE_DATA_WITH_COMMAS_LIST = [
-                               FLOAT_SHARES_STR, \
-                               SHARES_OUTSTANDING_STR, \
-                               CHART_LOWER_INDICATORS_LINKS_STR, \
-                               CHART_OVERLAYS_LINKS_STR, \
-                               NAME_STR \
-                               ]#TODO: triple check that no company names contain commas and remove NAME_STR from this list
+QUOTE_DATA_WITH_COMMAS_LIST = [NAME_STR]
 
 #THIS SECTION LISTS QUOTE DATA BY TYPE FOR FORMAT CONVERSION
 QUOTE_DATA_DATE_LIST = [

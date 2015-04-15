@@ -29,7 +29,7 @@ def test_get_range_of_historical_quotes():
 
 def test_get_number_of_historical_quotes():    
     endDate = date(2015,1,26) # Monday
-    quotes = get_number_of_historical_quotes('YHOO',5,endDate)
+    quotes = get_number_of_historical_quotes('YHOO', 5, endDate)
     assert len(quotes) == 5
 
 def test_get_quote_block():
@@ -43,9 +43,9 @@ def test_format_quote_data():
     assert result[0][q.MARKET_CAPITALIZATION_STR] == 33000000000
            
 def test_get_quotes():
-    quoteList = ['YHOO' for i in range(201)]
+    quoteList = ['YHOO' for i in range(1001)]
     result = q.get_quotes(quoteList)
-    assert len(result) == 201
+    assert len(result) == 1001
 
 def test_get_quote():
     #This test may fail if run doing trading hours
