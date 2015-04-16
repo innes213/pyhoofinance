@@ -1,10 +1,14 @@
-v0.2.0 20150413 —— Supporting new Yahoo finance API
+v0.2.0 20150415 —— Supporting new Yahoo finance API
 
 * removed redundant tokens
 * removed deprecated tokens
 * updated list of fields containing commas
-* now retrieves up to 1000 quotes at a time
+* _get_quote_block() now retrieves up to 1000 quotes at a time
+  (was 200)
 * updated S&P 500 input list
+* error_indictation is now determined by _get_quote_block() since 
+  yahoo no longer provides this
+* updated unit tests
 
 v0.1.2 20150205 —- Adding tests and ‘get_quote()’ function
 

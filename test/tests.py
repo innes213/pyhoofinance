@@ -46,6 +46,18 @@ def test_get_quotes():
     quoteList = ['YHOO' for i in range(1001)]
     result = q.get_quotes(quoteList)
     assert len(result) == 1001
+    # Make sure Error value is present
+    assert result[0][q.ERROR_INDICATION_STR].upper() == 'N/A'
+    
+    # Check that Symbol and Name are inserted
+    quoteList = ['YHOO']
+    resultA = q.get_quotes(quoteList,[q.SYMBOL_STR, q.NAME_STR])
+    resultB = q.get_quotes(quoteList,[])
+    assert resultA == resultB
+
+    # Check that a bad symbol results in an error indication
+    result = q.get_quotes(['N.VLD'],[])
+    assert result[0][q.ERROR_INDICATION_STR].upper() != 'N/A'
 
 def test_get_quote():
     #This test may fail if run doing trading hours

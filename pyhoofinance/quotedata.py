@@ -34,7 +34,7 @@ def _query_yahoo(symbolList,tokenStr):
 def _get_quote_block(symbolList,quoteDescriptionList, tokenStr, tokenCommaList):
     """
     Queries Yahoo for quotes. List of symbols must be no
-    greater than 200 per Yahoo limits
+    greater than 1000 per Yahoo limits
      
     Returns list of dictionaries
     """   
@@ -47,8 +47,7 @@ def _get_quote_block(symbolList,quoteDescriptionList, tokenStr, tokenCommaList):
     
     # Transpose
     commaData = [list(row) for row in zip(*columnList)]
-    
-    # tokenStr should always contain at least the SYMBOL_STR token, so check isn't really necessary
+
     rawDataBlock = _query_yahoo(symbolList,tokenStr)
     
     # For each row, break into individual values and assign to dictionary
@@ -68,10 +67,13 @@ def _get_quote_block(symbolList,quoteDescriptionList, tokenStr, tokenCommaList):
         try:
             for i in range(len(quoteDescriptionList)):
                 data[quoteDescriptionList[i]] = rawdata[i].strip('"')
-        
+            if data[NAME_STR].upper().find('N/A') != -1:
+                data[ERROR_INDICATION_STR] = 'Bad Symbol'
+            else:
+                data[ERROR_INDICATION_STR] = 'N/A'
         except:
             print 'Error parsing quote:' + str(rawdata)
-              
+
         quoteBlock.append(data)
 
     return quoteBlock
@@ -127,7 +129,7 @@ def get_quotes(symbols, quoteData = STANDARDQUOTE, raw = False):
     If raw is true, the raw text values are returned, otherwise values are properly
     typecast.
     """
-    blockSize=1000 # Maximum number of quotes per request allowed by Yahoo finance API
+    blockSize = 1000 # Maximum number of quotes per request allowed by Yahoo finance API
     quoteList = []
     
     # Validate quote request desc and look up corresponding key     
@@ -138,6 +140,10 @@ def get_quotes(symbols, quoteData = STANDARDQUOTE, raw = False):
     # Make sure the symbol is requested
     if SYMBOL_STR not in quoteDescriptionList:
         quoteDescriptionList.append(SYMBOL_STR)
+    
+    # Make sure the name is requested
+    if NAME_STR not in quoteDescriptionList:
+        quoteDescriptionList.append(NAME_STR)
             
     # Move request items that may return data with commas to end of list
     for desc in quoteDescriptionList:
@@ -195,5 +201,5 @@ if (__name__ == '__main__'):
         print(get_quotes(['YHOO']))
         print(get_quotes(['YHOO'],MINIQUOTE,True))
     except:
-        print('BALLS!')
+        print('Error occurred!')
         exit(1)

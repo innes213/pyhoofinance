@@ -113,8 +113,7 @@ ADJUSTED_CLOSE_STR                                =    'adjusted_close'
 #Handy pre-defined lists of quote data elements to pass to GetQuotes
 #Note that Name is always last as the result may contain a comma
 
-MINIQUOTE         = [ERROR_INDICATION_STR, \
-                     SYMBOL_STR, \
+MINIQUOTE         = [SYMBOL_STR, \
                      OPEN_STR, \
                      DAY_HIGH_STR, \
                      DAY_LOW_STR, \
@@ -124,8 +123,7 @@ MINIQUOTE         = [ERROR_INDICATION_STR, \
                      AVERAGE_DAILY_VOLUME_STR, \
                      NAME_STR]
 
-STANDARDQUOTE     = [ERROR_INDICATION_STR, \
-                     SYMBOL_STR, \
+STANDARDQUOTE     = [SYMBOL_STR, \
                      LAST_TRADE_PRICE_ONLY_STR, \
                      OPEN_STR, \
                      AVERAGE_DAILY_VOLUME_STR, \
@@ -147,7 +145,6 @@ STANDARDQUOTE     = [ERROR_INDICATION_STR, \
 
 EXTENDEDQUOTE = [SYMBOL_STR, \
                  LAST_TRADE_PRICE_ONLY_STR, \
-                 ERROR_INDICATION_STR, \
                  OPEN_STR, \
                  AVERAGE_DAILY_VOLUME_STR, \
                  VOLUME_STR, \
@@ -190,7 +187,6 @@ YAHOO_FINANCE_KEYS_DICT =  {ASK_STR                                         : 'a
                             TRAILING_DIVIDEND_PER_SHARE_STR                 : 'd' , \
                             LAST_TRADE_DATE_STR                             : 'd1' , \
                             EARNINGS_PER_SHARE_STR                          : 'e' , \
-                            ERROR_INDICATION_STR                            : 'e1' , \
                             EPS_ESTIMATE_CURRENT_YEAR_STR                   : 'e7' , \
                             EPS_ESTIMATE_NEXT_YEAR_STR                      : 'e8' , \
                             EPS_ESTIMATE_NEXT_QUARTER_STR                   : 'e9' , \
@@ -248,6 +244,7 @@ TRADE_DATE_STR \
 #DIVIDEND_PAY_DATE_STR \
 ]
 
+#TODO: clean out unused values
 QUOTE_DATA_FLOAT_LIST = [
 ASK_STR, \
 AVERAGE_DAILY_VOLUME_STR, \

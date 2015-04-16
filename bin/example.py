@@ -26,11 +26,11 @@ symbols = f.read().splitlines()
 f.close()
 
 # Append a bad symbol for demo purposes
-#symbols.append('N.VLD')
+symbols.append('N.VLD')
 
 # Define exactly what data we want (we don't have to do this but it will save a little memory
 # Requested item strings are defined in pyhoofinance * 
-myQuoteDataRequest = [ERROR_INDICATION_STR, AVERAGE_DAILY_VOLUME_STR, VOLUME_STR]
+myQuoteDataRequest = [NAME_STR, AVERAGE_DAILY_VOLUME_STR, VOLUME_STR]
 
 # Retrieve quotes for entire S&P500
 quoteList = quotedata.get_quotes(symbols,myQuoteDataRequest)
