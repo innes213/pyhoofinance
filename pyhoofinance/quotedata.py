@@ -72,7 +72,7 @@ def _get_quote_block(symbolList,quoteDescriptionList, tokenStr, tokenCommaList):
             else:
                 data[ERROR_INDICATION_STR] = 'N/A'
         except:
-            print 'Error parsing quote:' + str(rawdata)
+            print 'Error parsing quote: %s' % str(rawdata)
 
         quoteBlock.append(data)
 
@@ -162,7 +162,7 @@ def get_quotes(symbols, quoteData = STANDARDQUOTE, raw = False):
         else:
             # Toss out bad requests
             quoteDescriptionList.remove(desc)
-            print('{0} is unsupported or an invalid quote request. Removing from request.'.format(desc))
+            print '%s is unsupported or an invalid quote request. Removing from request.' % desc
     
     # if there are no valid data requests, return now
     if (quoteDescriptionList == []):
@@ -197,9 +197,9 @@ def get_quote(symbol, quoteData = STANDARDQUOTE, raw = False):
 if (__name__ == '__main__'):
     
     try:
-        print(get_quote('YHOO'))
-        print(get_quotes(['YHOO']))
-        print(get_quotes(['YHOO'],MINIQUOTE,True))
+        print get_quote('YHOO')
+        print get_quotes(['YHOO'])
+        print get_quotes(['YHOO'],MINIQUOTE,True)
     except:
-        print('Error occurred!')
+        print 'Error occurred!'
         exit(1)
