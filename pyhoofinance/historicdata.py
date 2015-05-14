@@ -34,11 +34,11 @@ def get_range_of_historical_quotes(symbol, startDate, endDate = datetime.today()
     try:
         response = urllib2.urlopen(url)
     except:
-        print('urlopen failed.')
+        print 'urlopen failed.'
         return []
     
     if (response.msg != 'OK'):
-        print('URL error: {}'.format(response.msg))
+        print 'URL error: %s' % response.msg
         return []
     
     rawDataBlock = response.read().splitlines()
@@ -59,7 +59,7 @@ def get_range_of_historical_quotes(symbol, startDate, endDate = datetime.today()
 
             historicalList.insert(0,data)
         except:
-            print 'get_range_of_historical_quotes() error. Symbol:',symbol
+            print 'get_range_of_historical_quotes() error. Symbol: %s' % symbol
             return []
 
     return historicalList
@@ -86,4 +86,4 @@ def get_number_of_historical_quotes(symbol, numDays, endDate=datetime.today()):
 
 if __name__=='__main__':
     for day in get_number_of_historical_quotes('YHOO',5):
-        print(day)
+        print day
