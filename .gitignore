@@ -60,3 +60,21 @@ build/lib/pyhoofinance/quotedata.py
 *.egg
 
 *.gz
+
+build/lib/.DS_Store
+
+.idea/.name
+
+.idea/compiler.xml
+
+.idea/copyright/profiles_settings.xml
+
+.idea/misc.xml
+
+.idea/modules.xml
+
+.idea/pyhoofinance.iml
+
+.idea/vcs.xml
+
+.idea/workspace.xml

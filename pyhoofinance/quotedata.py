@@ -177,6 +177,7 @@ def get_quotes(symbols, quote_data=STANDARDQUOTE, raw=False):
         else:
             # Toss out bad requests
             quote_description_list.remove(desc)
+
             print '%s is unsupported or an invalid quote request. Removing from request.' % desc
     
     # if there are no valid data requests, return now

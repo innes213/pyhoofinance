@@ -86,3 +86,4 @@ def get_number_of_historical_quotes(symbol, num_days, end_date=datetime.today())
     historical_list = get_range_of_historical_quotes(symbol, end_date - delta_date, end_date)[-num_days:]
     
     return historical_list
+
