@@ -9,81 +9,80 @@
 # GNU General Public License (or the Lesser GPL)
 # version 3.
 
-from defs import *
 import urllib2
 from datetime import timedelta
 from datetime import datetime
 
-def get_range_of_historical_quotes(symbol, startDate, endDate = datetime.today()):
+from defs import *
+
+def get_range_of_historical_quotes(symbol, start_date, end_date=datetime.today()):
     """
-    Get historical prices for the given ticker symbol.
-    startDate and endDate is date type
-    Returns a nested list.
+    Get historical quotes for the given ticker symbol for the range [start_date:end_date].
+    Returns a list of dictionaries
+    Args:
+        symbol (string) ticker symbol for data being retrieved
+        start_date (date) the first date to retrieve
+        end_date (Optional[date]) the last (most recent_ date to retrieve
     """
+    
     # URL should look like: http://real-chart.finance.yahoo.com/table.csv?s=AAPL&a=11&b=12&c=1980&d=06&e=11&f=2014&g=d&ignore=.csv
     url = 'http://real-chart.finance.yahoo.com/table.csv?s=%s&' % symbol + \
-    'a=%s&' % str(int(startDate.month) -1 ) + \
-    'b=%s&' % str(int(startDate.day)) + \
-    'c=%s&' % str(int(startDate.year)) + \
-    'd=%s&' % str(int(endDate.month) - 1 ) + \
-    'e=%s&' % str(int(endDate.day)) + \
-    'f=%s&' % str(int(endDate.year)) + \
+    'a=%s&' % str(int(start_date.month) -1 ) + \
+    'b=%s&' % str(int(start_date.day)) + \
+    'c=%s&' % str(int(start_date.year)) + \
+    'd=%s&' % str(int(end_date.month) - 1 ) + \
+    'e=%s&' % str(int(end_date.day)) + \
+    'f=%s&' % str(int(end_date.year)) + \
     'g=d&ignore=.csv'
     
-    historicalList = [] 
+    historical_list = [] 
     try:
         response = urllib2.urlopen(url)
     except:
-        print('urlopen failed.')
+        print 'urlopen failed.'
         return []
     
-    if (response.msg != 'OK'):
-        print('URL error: {}'.format(response.msg))
+    if response.msg != 'OK':
+        print 'URL error: %s' % response.msg
         return []
     
-    rawDataBlock = response.read().splitlines()
+    raw_data_block = response.read().splitlines()
         
-    for dataLine in rawDataBlock[1:]:
+    for data_line in raw_data_block[1:]:
         try:
             data = {}
-            rawData = dataLine.strip().strip('"').split(',')
+            raw_data = data_line.strip().strip('"').split(',')
 
-            data[TRADE_DATE_STR]                  = datetime.strptime(rawData[0],'%Y-%m-%d').date()
-            data[OPEN_STR]                        = float(rawData[1])
-            data[DAY_HIGH_STR]                    = float(rawData[2])
-            data[DAY_LOW_STR]                     = float(rawData[3])
-            data[LAST_TRADE_PRICE_ONLY_STR]       = float(rawData[4])
-            data[VOLUME_STR]                      = float(rawData[5])
-            data[ADJUSTED_CLOSE_STR]              = float(rawData[6])
+            data[TRADE_DATE_STR]                  = datetime.strptime(raw_data[0],'%Y-%m-%d').date()
+            data[OPEN_STR]                        = float(raw_data[1])
+            data[DAY_HIGH_STR]                    = float(raw_data[2])
+            data[DAY_LOW_STR]                     = float(raw_data[3])
+            data[LAST_TRADE_PRICE_ONLY_STR]       = float(raw_data[4])
+            data[VOLUME_STR]                      = float(raw_data[5])
+            data[ADJUSTED_CLOSE_STR]              = float(raw_data[6])
             data[SYMBOL_STR]                      = symbol
 
-            historicalList.insert(0,data)
+            historical_list.insert(0,data)
         except:
-            print 'get_range_of_historical_quotes() error. Symbol:',symbol
+            print 'get_range_of_historical_quotes() error. Symbol: %s' % symbol
             return []
 
-    return historicalList
+    return historical_list
 
-def get_number_of_historical_quotes(symbol, numDays, endDate=datetime.today()):
+def get_number_of_historical_quotes(symbol, num_days, end_date=datetime.today()):
     """
-    Get historical prices for the given ticker symbol.
-    endDate is date type
-    Returns a nested list.
+    Get historical prices for the given ticker symbol for a number of trading days ending
+    with end_date. If end_date is not a trading day, the closest past trading day is the 
+    starting point. Returns a list of dictionaries.
+    Args:
+        symbol (string) Ticker symbol for data being retrieved
+        num_days (integer} Number of trading days of data to retrieve
+        end_date (Optional[date]) Last (most recent) day for which data is retrieved
     """
     
-    historicalList = []
+    historical_list = []
 
-    #Figure out how many days to request. Add extra days to account for weekends, holidays, etc)
-    #try:
-    deltaDate = timedelta(days = int(numDays * 1.5 + 5))
-    historicalList = get_range_of_historical_quotes(symbol, endDate - deltaDate, endDate)[-numDays:]
-
-    #except:
-    #   print 'get_number_of_historic_quotes() error. Symbol:',symbol
-    #   return []
+    delta_date = timedelta(days = int(num_days * 1.5 + 5))
+    historical_list = get_range_of_historical_quotes(symbol, end_date - delta_date, end_date)[-num_days:]
     
-    return historicalList
-
-if __name__=='__main__':
-    for day in get_number_of_historical_quotes('YHOO',5):
-        print(day)
+    return historical_list

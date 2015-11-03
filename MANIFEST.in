@@ -6,5 +6,3 @@ include test/*.py
 include bin/example.py
 include bin/example1.py
 include bin/input/SandP500.csv
-prune bin/yahooapitest.py
-prune bin/yahooapihack.py

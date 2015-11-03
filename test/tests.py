@@ -13,8 +13,8 @@
 # To run: py.test tests.py
 
 from datetime import date
-from pyhoofinance.historicdata import get_number_of_historical_quotes
-from pyhoofinance.historicdata import get_range_of_historical_quotes
+
+from pyhoofinance.historicdata import get_number_of_historical_quotes, get_range_of_historical_quotes
 from pyhoofinance import quotedata as q
 from pyhoofinance import defs
 
@@ -23,13 +23,13 @@ def test_query_yahoo():
     assert ''.join(result).find('Yahoo') != -1
 
 def test_get_range_of_historical_quotes():
-    startDate = date(2015,1,23) # Friday
-    endDate = date(2015,1,26) # Monday
-    assert len(get_range_of_historical_quotes('YHOO',startDate,endDate)) == 2
+    start_date = date(2015,1,23) # Friday
+    end_date = date(2015,1,26) # Monday
+    assert len(get_range_of_historical_quotes('YHOO', start_date, end_date)) == 2
 
 def test_get_number_of_historical_quotes():    
-    endDate = date(2015,1,26) # Monday
-    quotes = get_number_of_historical_quotes('YHOO', 5, endDate)
+    end_date = date(2015,1,26)  # Monday
+    quotes = get_number_of_historical_quotes('YHOO', 5, end_date)
     assert len(quotes) == 5
 
 def test_get_quote_block():
@@ -43,17 +43,18 @@ def test_format_quote_data():
     assert result[0][q.MARKET_CAPITALIZATION_STR] == 33000000000
            
 def test_get_quotes():
-    quoteList = ['YHOO' for i in range(1001)]
-    result = q.get_quotes(quoteList)
-    assert len(result) == 1001
+    list_size = 1626
+    quote_list = ['YHOO' for i in range(list_size)]
+    result = q.get_quotes(quote_list)
+    assert len(result) == list_size
     # Make sure Error value is present
     assert result[0][q.ERROR_INDICATION_STR].upper() == 'N/A'
     
     # Check that Symbol and Name are inserted
-    quoteList = ['YHOO']
-    resultA = q.get_quotes(quoteList,[q.SYMBOL_STR, q.NAME_STR])
-    resultB = q.get_quotes(quoteList,[])
-    assert resultA == resultB
+    quote_list = ['YHOO']
+    result1 = q.get_quotes(quote_list,[q.SYMBOL_STR, q.NAME_STR])
+    result2 = q.get_quotes(quote_list,[])
+    assert result1 == result2
 
     # Check that a bad symbol results in an error indication
     result = q.get_quotes(['N.VLD'],[])

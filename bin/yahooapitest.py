@@ -9,7 +9,7 @@ and prints the raw output
 """
 import urllib2
 from pyhoofinance import * # Useful constants
-import pyhoofinance
+from pyhoofinance.quotedata import get_quotes
 
 def get_quote(symbol, dataKey):
     """
@@ -37,6 +37,20 @@ def get_quote(symbol, dataKey):
     return rawData
 
 if __name__=='__main__':
+    numQuotes = 1000
+    symbolList = ['YHOO' for i in range(numQuotes)]
+    quotes = get_quotes(symbolList)
+    print len(quotes)
+    while len(quotes) == len(symbolList):
+        numQuotes += 1
+        symbolList.append('YHOO')
+        quotes = get_quotes(symbolList)
+        print 'lengths %s %s' % (len(symbolList), len(quotes))
+    print numQuotes
+    # print quotes[:-2]
+    
+    """
     for data in YAHOO_FINANCE_KEYS_DICT:
         key = YAHOO_FINANCE_KEYS_DICT[data]
         print('{0:>42} = {1:3} --> {2}'.format(data, key, get_quote('TWTR',key)))
+    """
