@@ -19,6 +19,7 @@ setup(
     author_email='robinneshislop_at_gmail.com',
     packages=find_packages(),
     license='GNU LGPL License',
+    url = 'https://github.com/innes213/pyhoofinance',
     description='Set of functions for retreiving equity data from Yahoo finance',
     long_description='This module queries Yahoo Finance for multiple tickers and rapidly returns typed data. It will also retrieve historic information, formatted into the proper data type. It is designed for performing analysis quickly with large numbers of symbols.'
 )
