@@ -8,13 +8,20 @@ designed for flexibility and to minimize server queries.
 
 ## Installation
 
+From PyPi:
 ```
 pip install pyhoofinance
 ```
 
+From Source:
+```
+python setup.py install
+```
+
 ## Example Usage
 
-```python
+```
+python
 #!/usr/bin/env python
 
 from pyhoofinance import quotedata     # Current stock data

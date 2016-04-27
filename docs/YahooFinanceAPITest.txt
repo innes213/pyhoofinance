@@ -1,3 +1,6 @@
+************************* DEPRECATED ******************************
+Run YahooAPITest.py for updated values
+*******************************************************************
 #
 #  pyhoofinance - doc/YahooAPITest.txt
 #

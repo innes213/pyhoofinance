@@ -1,0 +1,9 @@
+# Building/Staging
+
+Super useful instructons: http://peterdowns.com/posts/first-time-with-pypi.html
+
+Upload to PyPi Test:
+python setup.py sdist upload -r pypitest
+
+Upload to PyPi live:
+python setup.py sdist upload -r pypi
