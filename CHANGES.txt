@@ -1,3 +1,5 @@
+v0.2.1 20160428 —— Cleaning up package
+
 v0.2.0 20150415 —— Supporting new Yahoo finance API
 
 * removed redundant tokens
