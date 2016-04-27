@@ -6,4 +6,5 @@ pyhoofinance.egg-info/
 *.egg
 *.gz
 .idea/
-pyhoofinance.imi
+build/
+pyhoofinance.iml
