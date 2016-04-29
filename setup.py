@@ -5,13 +5,13 @@
 #  Copyright (c) 2014-2016, Rob Innes Hislop
 #  email:robinneshislop__AT__gmail.com
 #
-# This library is distributed under the terms of the 
+# This library is distributed under the terms of the
 # GNU General Public License (or the Lesser GPL)
 # version 3.
-   
+
 from setuptools import setup, find_packages
 
-__version__ = '0.2.1'
+__version__ = '0.2.3'
 setup(
     name='pyhoofinance',
     version=__version__,

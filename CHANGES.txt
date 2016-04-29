@@ -1,3 +1,4 @@
+v0.2.3 20160429 -- Fixing bad package
 v0.2.1 20160428 —— Cleaning up package
 
 v0.2.0 20150415 —— Supporting new Yahoo finance API
@@ -8,7 +9,7 @@ v0.2.0 20150415 —— Supporting new Yahoo finance API
 * _get_quote_block() now retrieves up to 1000 quotes at a time
   (was 200)
 * updated S&P 500 input list
-* error_indictation is now determined by _get_quote_block() since 
+* error_indictation is now determined by _get_quote_block() since
   yahoo no longer provides this
 * updated unit tests
 
