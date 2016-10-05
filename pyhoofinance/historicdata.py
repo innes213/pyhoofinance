@@ -53,6 +53,7 @@ def get_range_of_historical_quotes(symbol, start_date, end_date=datetime.today()
             data = {}
             raw_data = data_line.strip().strip('"').split(',')
 
+            data[SYMBOL_STR]                      = symbol
             data[TRADE_DATE_STR]                  = datetime.strptime(raw_data[0],'%Y-%m-%d').date()
             data[OPEN_STR]                        = float(raw_data[1])
             data[DAY_HIGH_STR]                    = float(raw_data[2])
@@ -60,7 +61,11 @@ def get_range_of_historical_quotes(symbol, start_date, end_date=datetime.today()
             data[LAST_TRADE_PRICE_ONLY_STR]       = float(raw_data[4])
             data[VOLUME_STR]                      = float(raw_data[5])
             data[ADJUSTED_CLOSE_STR]              = float(raw_data[6])
-            data[SYMBOL_STR]                      = symbol
+
+            adj_delta = data[ADJUSTED_CLOSE_STR] - data[LAST_TRADE_PRICE_ONLY_STR]
+            data[ADJUSTED_OPEN_STR] = data[OPEN_STR] + adj_delta
+            data[ADJUSTED_DAY_HIGH_STR] = data[DAY_HIGH_STR] + adj_delta
+            data[ADJUSTED_DAY_LOW_STR] = data[DAY_LOW_STR] + adj_delta
 
             historical_list.insert(0,data)
         except:
@@ -79,11 +84,6 @@ def get_number_of_historical_quotes(symbol, num_days, end_date=datetime.today())
         num_days (integer} Number of trading days of data to retrieve
         end_date (Optional[date]) Last (most recent) day for which data is retrieved
     """
-    
-    historical_list = []
 
     delta_date = timedelta(days = int(num_days * 1.5 + 5))
-    historical_list = get_range_of_historical_quotes(symbol, end_date - delta_date, end_date)[-num_days:]
-    
-    return historical_list
-
+    return get_range_of_historical_quotes(symbol, end_date - delta_date, end_date)[-num_days:]

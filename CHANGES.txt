@@ -1,3 +1,7 @@
+-- Adding RT_QUOTE to defs
+-- defs.py cleanup
+-- historicdata now returns adjusted open, high, and low
+
 v0.2.3 20160429 -- Fixing bad package
 v0.2.1 20160428 —— Cleaning up package
 

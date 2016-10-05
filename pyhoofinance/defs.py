@@ -1,8 +1,6 @@
-#!/usr/bin/env python
-#
 #  pyhoofinance - defs.py
 #
-#  Copyright (c) 2014-2015, Rob Innes Hislop
+#  Copyright (c) 2014-2016, Rob Innes Hislop
 #  email:robinneshislop__AT__gmail.com
 #
 # This library is distributed under the terms of the 
@@ -109,199 +107,213 @@ DAY_VALUE_CHANGE_RT_STR                           =    'day_value_change_rt'
 STOCK_EXCHANGE_STR                                =    'stock_exchange'
 DIVIDEND_YIELD_STR                                =    'dividend_yield'
 ADJUSTED_CLOSE_STR                                =    'adjusted_close'
+ADJUSTED_OPEN_STR                                 =    'adjusted_open'
+ADJUSTED_DAY_HIGH_STR                             =    'adjusted_open'
+ADJUSTED_DAY_LOW_STR                              =    'adjusted_open'
 
 #Handy pre-defined lists of quote data elements to pass to GetQuotes
 #Note that Name is always last as the result may contain a comma
 
-MINIQUOTE         = [SYMBOL_STR, \
-                     OPEN_STR, \
-                     DAY_HIGH_STR, \
-                     DAY_LOW_STR, \
-                     CHANGE_STR, \
-                     LAST_TRADE_PRICE_ONLY_STR, \
-                     VOLUME_STR, \
-                     AVERAGE_DAILY_VOLUME_STR, \
+MINIQUOTE         = [SYMBOL_STR,
+                     OPEN_STR,
+                     DAY_HIGH_STR,
+                     DAY_LOW_STR,
+                     CHANGE_STR,
+                     LAST_TRADE_PRICE_ONLY_STR,
+                     VOLUME_STR,
+                     AVERAGE_DAILY_VOLUME_STR,
+                     NAME_STR]
+RT_QUOTE          = [SYMBOL_STR,
+                     ASK_RT_STR,
+                     BID_RT_STR,
+                     CHANGE_RT_STR,
+                     DAY_RANGE_RT_STR,
+                     LAST_TRADE_RT_STR,
+                     LAST_TRADE_RT_WITH_TIME_STR,
+                     MARKET_CAP_RT_STR,
+                     PE_RATIO_RT_STR,
+                     AFTER_HOURS_CHANGE_RT_STR,
                      NAME_STR]
 
-STANDARDQUOTE     = [SYMBOL_STR, \
-                     LAST_TRADE_PRICE_ONLY_STR, \
-                     OPEN_STR, \
-                     AVERAGE_DAILY_VOLUME_STR, \
-                     VOLUME_STR, \
-                     DAY_HIGH_STR, \
-                     DAY_LOW_STR, \
-                     CHANGE_STR, \
-                     LAST_TRADE_DATE_STR, \
-                     PREVIOUS_CLOSE_STR, \
-                     MARKET_CAPITALIZATION_STR, \
-                     PE_RATIO_STR, \
-                     ONE_YR_TARGET_PRICE_STR, \
-                     TRAILING_DIVIDEND_PER_SHARE_STR, \
-                     DIVIDEND_YIELD_STR, \
-                     EARNINGS_PER_SHARE_STR, \
-                     FIFTYTWO_WEEK_LOW_STR, \
-                     FIFTYTWO_WEEK_HIGH_STR, \
+STANDARDQUOTE     = [SYMBOL_STR,
+                     LAST_TRADE_PRICE_ONLY_STR,
+                     OPEN_STR,
+                     AVERAGE_DAILY_VOLUME_STR,
+                     VOLUME_STR,
+                     DAY_HIGH_STR,
+                     DAY_LOW_STR,
+                     CHANGE_STR,
+                     LAST_TRADE_DATE_STR,
+                     PREVIOUS_CLOSE_STR,
+                     MARKET_CAPITALIZATION_STR,
+                     PE_RATIO_STR,
+                     ONE_YR_TARGET_PRICE_STR,
+                     TRAILING_DIVIDEND_PER_SHARE_STR,
+                     DIVIDEND_YIELD_STR,
+                     EARNINGS_PER_SHARE_STR,
+                     FIFTYTWO_WEEK_LOW_STR,
+                     FIFTYTWO_WEEK_HIGH_STR,
                      NAME_STR]
 
-EXTENDEDQUOTE = [SYMBOL_STR, \
-                 LAST_TRADE_PRICE_ONLY_STR, \
-                 OPEN_STR, \
-                 AVERAGE_DAILY_VOLUME_STR, \
-                 VOLUME_STR, \
-                 DAY_HIGH_STR, \
-                 DAY_LOW_STR, \
-                 CHANGE_STR, \
-                 LAST_TRADE_DATE_STR, \
-                 PREVIOUS_CLOSE_STR, \
-                 MARKET_CAPITALIZATION_STR, \
-                 PE_RATIO_STR, \
-                 EARNINGS_PER_SHARE_STR, \
-                 EPS_ESTIMATE_NEXT_YEAR_STR, \
-                 EPS_ESTIMATE_NEXT_QUARTER_STR, \
-                 EBITDA_STR, \
-                 TWOHUNDRED_DAY_MOVING_AVERAGE_STR, \
-                 PRICE_TO_SALES_STR, \
-                 PRICE_TO_BOOK_STR, \
-                 EX_DIVIDEND_DATE_STR, \
-                 DIVIDEND_PAY_DATE_STR, \
-                 ONE_YR_TARGET_PRICE_STR, \
-                 DIVIDEND_YIELD_STR, \
-                 PEG_RATIO_STR, \
-                 TRAILING_DIVIDEND_PER_SHARE_STR, \
-                 STOCK_EXCHANGE_STR, \
+EXTENDEDQUOTE = [SYMBOL_STR,
+                 LAST_TRADE_PRICE_ONLY_STR,
+                 OPEN_STR,
+                 AVERAGE_DAILY_VOLUME_STR,
+                 VOLUME_STR,
+                 DAY_HIGH_STR,
+                 DAY_LOW_STR,
+                 CHANGE_STR,
+                 LAST_TRADE_DATE_STR,
+                 PREVIOUS_CLOSE_STR,
+                 MARKET_CAPITALIZATION_STR,
+                 PE_RATIO_STR,
+                 EARNINGS_PER_SHARE_STR,
+                 EPS_ESTIMATE_NEXT_YEAR_STR,
+                 EPS_ESTIMATE_NEXT_QUARTER_STR,
+                 EBITDA_STR,
+                 TWOHUNDRED_DAY_MOVING_AVERAGE_STR,
+                 PRICE_TO_SALES_STR,
+                 PRICE_TO_BOOK_STR,
+                 EX_DIVIDEND_DATE_STR,
+                 DIVIDEND_PAY_DATE_STR,
+                 ONE_YR_TARGET_PRICE_STR,
+                 DIVIDEND_YIELD_STR,
+                 PEG_RATIO_STR,
+                 TRAILING_DIVIDEND_PER_SHARE_STR,
+                 STOCK_EXCHANGE_STR,
                  NAME_STR]
 
 """
 Internal global constants
 """
 
-YAHOO_FINANCE_KEYS_DICT =  {ASK_STR                                         : 'a'  , \
-                            AVERAGE_DAILY_VOLUME_STR                        : 'a2' , \
-                            ASK_SIZE_STR                                    : 'a5' , \
-                            BID_STR                                         : 'b'  , \
-                            BOOK_VALUE_STR                                  : 'b4' , \
-                            BID_SIZE_STR                                    : 'b6' , \
-                            CHANGE_AND_PERCENT_CHANGE_STR                   : 'c'  , \
-                            CHANGE_STR                                      : 'c1' , \
-                            CURRENCY_STR                                    : 'c4' , \
-                            TRAILING_DIVIDEND_PER_SHARE_STR                 : 'd' , \
-                            LAST_TRADE_DATE_STR                             : 'd1' , \
-                            EARNINGS_PER_SHARE_STR                          : 'e' , \
-                            EPS_ESTIMATE_CURRENT_YEAR_STR                   : 'e7' , \
-                            EPS_ESTIMATE_NEXT_YEAR_STR                      : 'e8' , \
-                            EPS_ESTIMATE_NEXT_QUARTER_STR                   : 'e9' , \
-                            FLOAT_SHARES_STR                                : 'f6' , \
-                            DAY_LOW_STR                                     : 'g' , \
-                            DAY_HIGH_STR                                    : 'h' , \
-                            FIFTYTWO_WEEK_LOW_STR                           : 'j' , \
-                            FIFTYTWO_WEEK_HIGH_STR                          : 'k' , \
-                            MARKET_CAPITALIZATION_STR                       : 'j1' , \
-                            SHARES_OUTSTANDING_STR                          : 'j2' , \
-                            EBITDA_STR                                      : 'j4' , \
-                            CHANGE_FROM_52_WEEK_LOW_STR                     : 'j5' , \
-                            PERCENT_CHANGE_FROM_52_WEEK_LOW_STR             : 'j6' , \
-                            LAST_TRADE_SIZE_STR                             : 'k3' , \
-                            CHANGE_FROM_52_WEEK_HIGH_STR                    : 'k4' , \
-                            PERCEBT_CHANGE_FROM_52_WEEK_HIGH_STR            : 'k5' , \
-                            LAST_TRADE_RT_STR                               : 'l' , \
-                            LAST_TRADE_PRICE_ONLY_STR                       : 'l1' , \
-                            DAY_RANGE_STR                                   : 'm' , \
-                            FIFTY_DAY_MOVING_AVERAGE_STR                    : 'm3' , \
-                            TWOHUNDRED_DAY_MOVING_AVERAGE_STR               : 'm4' , \
-                            CHANGE_FROM_200_DAY_MOVING_AVERAGE_STR          : 'm5' , \
-                            PERCENT_CHANGE_FROM_200_DAY_MOVING_AVERAGE_STR  : 'm6' , \
-                            CHANGE_FROM_50_DAY_MOVING_AVERAGE_STR           : 'm7' , \
-                            PERCENT_CHANGE_FROM_50_DAY_MOVING_AVERAGE_STR   : 'm8' , \
-                            NAME_STR                                        : 'n' , \
-                            OPEN_STR                                        : 'o' , \
-                            PREVIOUS_CLOSE_STR                              : 'p' , \
-                            CHANGE_IN_PERCENT_STR                           : 'p2' , \
-                            PRICE_TO_SALES_STR                              : 'p5' , \
-                            PRICE_TO_BOOK_STR                               : 'p6' , \
-                            EX_DIVIDEND_DATE_STR                            : 'q' , \
-                            PE_RATIO_STR                                    : 'r' , \
-                            DIVIDEND_PAY_DATE_STR                           : 'r1' , \
-                            PEG_RATIO_STR                                   : 'r5' , \
-                            PRICE_TO_EPS_ESTIMATE_CURRENT_YEAR_STR          : 'r6' , \
-                            PRICE_TO_EPS_ESTIMATE_NEXT_YEAR_STR             : 'r7' , \
-                            SYMBOL_STR                                      : 's' , \
-                            REVENUE_STR                                     : 's6' , \
-                            SHORT_RATIO_STR                                 : 's7' , \
-                            LAST_TRADE_TIME_STR                             : 't1' , \
-                            ONE_YR_TARGET_PRICE_STR                         : 't8' , \
-                            VOLUME_STR                                      : 'v' , \
-                            FIFTYTWO_WEEK_RANGE_STR                         : 'w' , \
-                            STOCK_EXCHANGE_STR                              : 'x' , \
-                            DIVIDEND_YIELD_STR                              : 'y'   }
+YAHOO_FINANCE_KEYS_DICT =  {ASK_STR                                         : 'a'  ,
+                            AVERAGE_DAILY_VOLUME_STR                        : 'a2' ,
+                            ASK_SIZE_STR                                    : 'a5' ,
+                            BID_STR                                         : 'b'  ,
+                            BOOK_VALUE_STR                                  : 'b4' ,
+                            BID_SIZE_STR                                    : 'b6' ,
+                            CHANGE_AND_PERCENT_CHANGE_STR                   : 'c'  ,
+                            CHANGE_STR                                      : 'c1' ,
+                            CURRENCY_STR                                    : 'c4' ,
+                            TRAILING_DIVIDEND_PER_SHARE_STR                 : 'd' ,
+                            LAST_TRADE_DATE_STR                             : 'd1' ,
+                            EARNINGS_PER_SHARE_STR                          : 'e' ,
+                            EPS_ESTIMATE_CURRENT_YEAR_STR                   : 'e7' ,
+                            EPS_ESTIMATE_NEXT_YEAR_STR                      : 'e8' ,
+                            EPS_ESTIMATE_NEXT_QUARTER_STR                   : 'e9' ,
+                            FLOAT_SHARES_STR                                : 'f6' ,
+                            DAY_LOW_STR                                     : 'g' ,
+                            DAY_HIGH_STR                                    : 'h' ,
+                            FIFTYTWO_WEEK_LOW_STR                           : 'j' ,
+                            FIFTYTWO_WEEK_HIGH_STR                          : 'k' ,
+                            MARKET_CAPITALIZATION_STR                       : 'j1' ,
+                            SHARES_OUTSTANDING_STR                          : 'j2' ,
+                            EBITDA_STR                                      : 'j4' ,
+                            CHANGE_FROM_52_WEEK_LOW_STR                     : 'j5' ,
+                            PERCENT_CHANGE_FROM_52_WEEK_LOW_STR             : 'j6' ,
+                            LAST_TRADE_SIZE_STR                             : 'k3' ,
+                            CHANGE_FROM_52_WEEK_HIGH_STR                    : 'k4' ,
+                            PERCEBT_CHANGE_FROM_52_WEEK_HIGH_STR            : 'k5' ,
+                            LAST_TRADE_RT_STR                               : 'l' ,
+                            LAST_TRADE_PRICE_ONLY_STR                       : 'l1' ,
+                            DAY_RANGE_STR                                   : 'm' ,
+                            FIFTY_DAY_MOVING_AVERAGE_STR                    : 'm3' ,
+                            TWOHUNDRED_DAY_MOVING_AVERAGE_STR               : 'm4' ,
+                            CHANGE_FROM_200_DAY_MOVING_AVERAGE_STR          : 'm5' ,
+                            PERCENT_CHANGE_FROM_200_DAY_MOVING_AVERAGE_STR  : 'm6' ,
+                            CHANGE_FROM_50_DAY_MOVING_AVERAGE_STR           : 'm7' ,
+                            PERCENT_CHANGE_FROM_50_DAY_MOVING_AVERAGE_STR   : 'm8' ,
+                            NAME_STR                                        : 'n' ,
+                            OPEN_STR                                        : 'o' ,
+                            PREVIOUS_CLOSE_STR                              : 'p' ,
+                            CHANGE_IN_PERCENT_STR                           : 'p2' ,
+                            PRICE_TO_SALES_STR                              : 'p5' ,
+                            PRICE_TO_BOOK_STR                               : 'p6' ,
+                            EX_DIVIDEND_DATE_STR                            : 'q' ,
+                            PE_RATIO_STR                                    : 'r' ,
+                            DIVIDEND_PAY_DATE_STR                           : 'r1' ,
+                            PEG_RATIO_STR                                   : 'r5' ,
+                            PRICE_TO_EPS_ESTIMATE_CURRENT_YEAR_STR          : 'r6' ,
+                            PRICE_TO_EPS_ESTIMATE_NEXT_YEAR_STR             : 'r7' ,
+                            SYMBOL_STR                                      : 's' ,
+                            REVENUE_STR                                     : 's6' ,
+                            SHORT_RATIO_STR                                 : 's7' ,
+                            LAST_TRADE_TIME_STR                             : 't1' ,
+                            ONE_YR_TARGET_PRICE_STR                         : 't8' ,
+                            VOLUME_STR                                      : 'v' ,
+                            FIFTYTWO_WEEK_RANGE_STR                         : 'w' ,
+                            STOCK_EXCHANGE_STR                              : 'x' ,
+                            DIVIDEND_YIELD_STR                              : 'y'}
 
 QUOTE_DATA_WITH_COMMAS_LIST = [NAME_STR]
 
 #THIS SECTION LISTS QUOTE DATA BY TYPE FOR FORMAT CONVERSION
 QUOTE_DATA_DATE_LIST = [
-LAST_TRADE_DATE_STR, \
-TRADE_DATE_STR \
+LAST_TRADE_DATE_STR,
+TRADE_DATE_STR
 #EX_DIVIDEND_DATE_STR, \ TODO: Handle date strings in this format
 #DIVIDEND_PAY_DATE_STR \
 ]
 
 #TODO: clean out unused values
 QUOTE_DATA_FLOAT_LIST = [
-ASK_STR, \
-AVERAGE_DAILY_VOLUME_STR, \
-ASK_SIZE_STR, \
-BID_STR, \
-ASK_RT_STR, \
-BID_RT_STR, \
-BOOK_VALUE_STR, \
-BID_SIZE_STR, \
-CHANGE_STR, \
-COMMISSION_STR, \
-CHANGE_RT_STR, \
-AFTER_HOURS_CHANGE_RT_STR, \
-TRAILING_DIVIDEND_PER_SHARE_STR, \
-EARNINGS_PER_SHARE_STR, \
-EPS_ESTIMATE_CURRENT_YEAR_STR, \
-EPS_ESTIMATE_NEXT_YEAR_STR, \
-EPS_ESTIMATE_NEXT_QUARTER_STR, \
-FLOAT_SHARES_STR, \
-DAY_LOW_STR, \
-DAY_HIGH_STR, \
-FIFTYTWO_WEEK_LOW_STR, \
-FIFTYTWO_WEEK_HIGH_STR, \
-CHANGE_FROM_52_WEEK_LOW_STR, \
-PERCENT_CHANGE_FROM_52_WEEK_LOW_STR, \
+ASK_STR,
+AVERAGE_DAILY_VOLUME_STR,
+ASK_SIZE_STR,
+BID_STR,
+ASK_RT_STR,
+BID_RT_STR,
+BOOK_VALUE_STR,
+BID_SIZE_STR,
+CHANGE_STR,
+COMMISSION_STR,
+CHANGE_RT_STR,
+AFTER_HOURS_CHANGE_RT_STR,
+TRAILING_DIVIDEND_PER_SHARE_STR,
+EARNINGS_PER_SHARE_STR,
+EPS_ESTIMATE_CURRENT_YEAR_STR,
+EPS_ESTIMATE_NEXT_YEAR_STR,
+EPS_ESTIMATE_NEXT_QUARTER_STR,
+FLOAT_SHARES_STR,
+DAY_LOW_STR,
+DAY_HIGH_STR,
+FIFTYTWO_WEEK_LOW_STR,
+FIFTYTWO_WEEK_HIGH_STR,
+CHANGE_FROM_52_WEEK_LOW_STR,
+PERCENT_CHANGE_FROM_52_WEEK_LOW_STR,
 CHANGE_PERCENT_RT_STR, \
 LAST_TRADE_SIZE_STR, \
 CHANGE_FROM_52_WEEK_HIGH_STR, \
 PERCEBT_CHANGE_FROM_52_WEEK_HIGH_STR, \
-LAST_TRADE_RT_STR, \
-LAST_TRADE_PRICE_ONLY_STR, \
-TWOHUNDRED_DAY_MOVING_AVERAGE_STR, \
-FIFTY_DAY_MOVING_AVERAGE_STR, \
-CHANGE_FROM_200_DAY_MOVING_AVERAGE_STR, \
-PERCENT_CHANGE_FROM_200_DAY_MOVING_AVERAGE_STR, \
-CHANGE_FROM_50_DAY_MOVING_AVERAGE_STR, \
-PERCENT_CHANGE_FROM_50_DAY_MOVING_AVERAGE_STR, \
-OPEN_STR, \
-PREVIOUS_CLOSE_STR, \
-PRICE_PAID_STR, \
-CHANGE_IN_PERCENT_STR, \
-PRICE_TO_SALES_STR, \
-PRICE_TO_BOOK_STR, \
-PE_RATIO_STR, \
-PE_RATIO_RT_STR, \
-PEG_RATIO_STR, \
-PRICE_TO_EPS_ESTIMATE_CURRENT_YEAR_STR, \
-PRICE_TO_EPS_ESTIMATE_NEXT_YEAR_STR, \
-REVENUE_STR, \
-SHORT_RATIO_STR, \
-ONE_YR_TARGET_PRICE_STR, \
-VOLUME_STR, \
-DAY_VALUE_CHANGE_STR, \
-DIVIDEND_YIELD_STR, \
-MARKET_CAPITALIZATION_STR, \
-SHARES_OUTSTANDING_STR, \
-MARKET_CAP_RT_STR, \
+LAST_TRADE_RT_STR,
+LAST_TRADE_PRICE_ONLY_STR,
+TWOHUNDRED_DAY_MOVING_AVERAGE_STR,
+FIFTY_DAY_MOVING_AVERAGE_STR,
+CHANGE_FROM_200_DAY_MOVING_AVERAGE_STR,
+PERCENT_CHANGE_FROM_200_DAY_MOVING_AVERAGE_STR,
+CHANGE_FROM_50_DAY_MOVING_AVERAGE_STR,
+PERCENT_CHANGE_FROM_50_DAY_MOVING_AVERAGE_STR,
+OPEN_STR,
+PREVIOUS_CLOSE_STR,
+PRICE_PAID_STR,
+CHANGE_IN_PERCENT_STR,
+PRICE_TO_SALES_STR,
+PRICE_TO_BOOK_STR,
+PE_RATIO_STR,
+PE_RATIO_RT_STR,
+PEG_RATIO_STR,
+PRICE_TO_EPS_ESTIMATE_CURRENT_YEAR_STR,
+PRICE_TO_EPS_ESTIMATE_NEXT_YEAR_STR,
+REVENUE_STR,
+SHORT_RATIO_STR,
+ONE_YR_TARGET_PRICE_STR,
+VOLUME_STR,
+DAY_VALUE_CHANGE_STR,
+DIVIDEND_YIELD_STR,
+MARKET_CAPITALIZATION_STR,
+SHARES_OUTSTANDING_STR,
+MARKET_CAP_RT_STR,
 EBITDA_STR]
 
 

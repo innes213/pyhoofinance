@@ -1,6 +1,4 @@
-#!/usr/bin/env python
-#
-#  pyhoofinance - quote_data.py
+#  pyhoofinance - quotedata.py
 #
 #  Copyright (c) 2014-2015, Rob Innes Hislop
 #  email:robinneshislop__AT__gmail.com
