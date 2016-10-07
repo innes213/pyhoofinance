@@ -108,8 +108,8 @@ STOCK_EXCHANGE_STR                                =    'stock_exchange'
 DIVIDEND_YIELD_STR                                =    'dividend_yield'
 ADJUSTED_CLOSE_STR                                =    'adjusted_close'
 ADJUSTED_OPEN_STR                                 =    'adjusted_open'
-ADJUSTED_DAY_HIGH_STR                             =    'adjusted_open'
-ADJUSTED_DAY_LOW_STR                              =    'adjusted_open'
+ADJUSTED_DAY_HIGH_STR                             =    'adjusted_high'
+ADJUSTED_DAY_LOW_STR                              =    'adjusted_low'
 
 #Handy pre-defined lists of quote data elements to pass to GetQuotes
 #Note that Name is always last as the result may contain a comma
